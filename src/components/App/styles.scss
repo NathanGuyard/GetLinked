@@ -1,0 +1,29 @@
+// Global
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// VAR / FUNC
+
+
+
+
+.carousel__title {
+  font-size: 4rem;
+}
+
+.carousel__description {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 500px) {
+  .carousel__title {
+    font-size: 2rem;
+  }
+  .carousel__description {
+    font-size: 0.75rem;
+  }
+}

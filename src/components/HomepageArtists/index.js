@@ -5,10 +5,12 @@ import Cards from 'src/components/Cards';
 import './styles.scss';
 
 // == Composant
-const HomepageEvents = () => (
+const HomepageArtists = () => (
   <div className="upcomming-events">
-    <h1 className="upcomming-events__title">événements à venir</h1>
+    <h1 className="upcomming-events__title">artists du moment</h1>
     <div className="upcomming-events__content">
+      <Cards />
+      <Cards />
       <Cards />
       <Cards />
     </div>
@@ -16,4 +18,4 @@ const HomepageEvents = () => (
 );
 
 // == Export
-export default HomepageEvents;
+export default HomepageArtists;

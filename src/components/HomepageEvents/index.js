@@ -13,9 +13,6 @@ const HomepageEvents = () => (
       <Cards />
       <Cards />
       <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
     </div>
   </div>
 );

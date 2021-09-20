@@ -45,6 +45,7 @@ const CarouselComponent = () => {
       height="500px"
       captionStyle={captionStyle}
       radius="0"
+      z-index="1"
       captionPosition="center"
       automatic={true}
       dots={true}

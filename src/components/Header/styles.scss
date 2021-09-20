@@ -3,6 +3,7 @@
 .header {
   width: 100vw;
   height: 80px;
+  position: relative;
 
   &__menu {
     width: 100vw;
@@ -21,6 +22,37 @@
 
     &__burger {
       height: 35px;
+    }
+    &__burger__cross {
+      height: 30px;
+    }
+  }
+
+  &__menu-opened {
+    width: 100vw;
+    height: 250px;
+    background-color: white;
+    z-index: 5;
+    position: absolute;
+
+    &__ul {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      
+      &__li {
+        font-size: 1.8rem;
+        margin-bottom: 0.6rem;
+        text-transform: uppercase;
+
+        &__active {
+          font-weight: bold;
+          text-decoration: underline;
+        }
+      }
     }
   }
 }

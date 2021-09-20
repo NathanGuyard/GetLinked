@@ -2,6 +2,7 @@
 
 import Header from 'src/components/Header';
 import CarouselComponent from 'src/components/CarouselComponent';
+import HomepageEvents from 'src/components/HomepageEvents';
 
 import './styles.scss';
 
@@ -11,6 +12,7 @@ const App = () => (
     {/* ----------- Header -------------- */}
     <Header />
     <CarouselComponent />
+    <HomepageEvents />
   </div>
 );
 

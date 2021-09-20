@@ -3,6 +3,7 @@
 import Header from 'src/components/Header';
 import CarouselComponent from 'src/components/CarouselComponent';
 import HomepageEvents from 'src/components/HomepageEvents';
+import HomepageArtists from 'src/components/HomepageArtists';
 
 import './styles.scss';
 
@@ -13,6 +14,7 @@ const App = () => (
     <Header />
     <CarouselComponent />
     <HomepageEvents />
+    <HomepageArtists />
   </div>
 );
 

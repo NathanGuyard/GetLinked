@@ -1,6 +1,7 @@
 import './styles.scss';
 
 import { useSelector, useDispatch } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
 
 import logo from './images/logo.png';
 import menuClosed from './images/menu_closed.png';
@@ -19,18 +20,28 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header__menu">
-        <img src={logo} alt="logo" className="header__menu__logo" />
+        <Link to="/"><img src={logo} alt="logo" className="header__menu__logo" /></Link>
         {!menuOpened && (<img src={menuClosed} alt="menu_logo" className="header__menu__burger" onClick={handleMenu} />)}
         {menuOpened && (<img src={menuOpenedIcon} alt="menu_logo" className="header__menu__burger header__menu__burger__cross" onClick={handleMenu} />)}
       </div>
       {menuOpened && (
         <div className="header__menu-opened">
           <ul className="header__menu-opened__ul">
-            <li className="header__menu-opened__ul__li header__menu-opened__ul__li__active">Accueil</li>
-            <li className="header__menu-opened__ul__li">Artistes</li>
-            <li className="header__menu-opened__ul__li">Evenements</li>
-            <li className="header__menu-opened__ul__li">Organisateurs</li>
-            <li className="header__menu-opened__ul__li">Connexion</li>
+            <NavLink exact to="/" activeClassName="header__menu-opened__ul__li__active">
+              <li className="header__menu-opened__ul__li">Accueil</li>
+            </NavLink>
+            <NavLink exact to="/artistes" activeClassName="header__menu-opened__ul__li__active">
+              <li className="header__menu-opened__ul__li">Artistes</li>
+            </NavLink>
+            <NavLink exact to="/evenements" activeClassName="header__menu-opened__ul__li__active">
+              <li className="header__menu-opened__ul__li">Evenements</li>
+            </NavLink>
+            <NavLink exact to="/organisateurs" activeClassName="header__menu-opened__ul__li__active">
+              <li className="header__menu-opened__ul__li">Organisateurs</li>
+            </NavLink>
+            <NavLink exact to="/connexion" activeClassName="header__menu-opened__ul__li__active">
+              <li className="header__menu-opened__ul__li">Connexion</li>
+            </NavLink>
           </ul>
         </div>
       )}

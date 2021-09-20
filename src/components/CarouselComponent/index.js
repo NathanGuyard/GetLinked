@@ -21,7 +21,7 @@ const CarouselComponent = () => {
     },
     {
       image: second,
-      caption: 'autre tire ?',
+      caption: 'autre titre ?',
     },
     {
       image: third,
@@ -41,10 +41,10 @@ const CarouselComponent = () => {
     <Carousel
       data={data}
       time={4000}
-      width="96vw"
+      width="100vw"
       height="500px"
       captionStyle={captionStyle}
-      radius="4px"
+      radius="0"
       captionPosition="center"
       automatic={true}
       dots={true}
@@ -54,13 +54,13 @@ const CarouselComponent = () => {
         textAlign: 'center',
         // maxWidth: '850px',
         // maxHeight: '500px',
-        margin: '40px auto',
-        padding: '0 1rem',
+        margin: '0 auto',
+        padding: '0 0rem',
         display: 'flex',
         justifyContent: 'center',
       }}
     />
-  )
+  );
 };
 
 export default CarouselComponent;

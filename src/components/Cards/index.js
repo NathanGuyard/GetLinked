@@ -1,9 +1,9 @@
 // == Import
 import banner from './images/banner.jpg';
 import guillaume from './images/guillaume.jpg';
-import etoile from './images/etoile1.png';
+import etoile from './images/etoile.png';
 import etoileTwo from './images/etoile2.png';
-import pin from './images/pin.png';
+import pin from './images/pin2.png';
 
 import './styles.scss';
 

@@ -7,9 +7,7 @@ import CarouselComponent from 'src/components/CarouselComponent';
 import HomepageEvents from 'src/components/HomepageEvents';
 import HomepageArtists from 'src/components/HomepageArtists';
 import Footer from 'src/components/Footer';
-
-import Card from 'src/components/Cards';
-import LittleCard from 'src/components/LittleCard';
+import ArtistesPage from 'src/components/ArtistesPage';
 
 import './styles.scss';
 
@@ -27,16 +25,7 @@ const App = () => (
       </Route>
       <Route exact path="/artistes">
         <Header />
-        <div className="artistes-page">
-          <div className="artistes-page__best">
-            <h1 className="artistes-page__best__title">Les mieux notés</h1>
-            <div className="artistes-page__best__container">
-              <LittleCard />
-              <LittleCard />
-              <LittleCard />
-            </div>
-          </div>
-        </div>
+        <ArtistesPage />
       </Route>
       <Route exact path="/connexion">
         <Header />

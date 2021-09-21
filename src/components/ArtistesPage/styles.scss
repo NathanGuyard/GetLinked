@@ -1,6 +1,6 @@
 .artistes-page {
   width: 100%;
-  height: 100vh;
+  height: fit-content;
 
   &__best {
     background-color: blanchedalmond;
@@ -69,6 +69,33 @@
       padding-left: 10px;
     }
   }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1250px;
+      margin: 0 auto;
+    }
+
+    &__nav {
+      display: flex;
+      p {
+        margin: 0 0.6rem;
+      }
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+
 }
 
 @media screen and (max-width: 410px) {

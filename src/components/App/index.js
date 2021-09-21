@@ -26,6 +26,7 @@ const App = () => (
       <Route exact path="/artistes">
         <Header />
         <ArtistesPage />
+        <Footer />
       </Route>
       <Route exact path="/connexion">
         <Header />

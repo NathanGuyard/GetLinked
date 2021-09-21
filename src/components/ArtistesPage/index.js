@@ -29,6 +29,23 @@ const ArtistesPage = () => (
         <input type="number" name="artistesPageNumber" id="artistesPageNumber" min="1" max="50" range="1" className="artistes-page__from__input" />
       </div>
     </form>
+    <div className="artistes-page__list">
+      <div className="artistes-page__list__container">
+        <LittleCard />
+        <LittleCard />
+        <LittleCard />
+        <LittleCard />
+        <LittleCard />
+        <LittleCard />
+        <LittleCard />
+        <LittleCard />
+      </div>
+      <div className="artistes-page__list__nav">
+        <a>prev</a>
+        <p>1/25</p>
+        <a>next</a>
+      </div>
+    </div>
   </div>
 );
 

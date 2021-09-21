@@ -7,6 +7,7 @@ import CarouselComponent from 'src/components/CarouselComponent';
 import HomepageEvents from 'src/components/HomepageEvents';
 import HomepageArtists from 'src/components/HomepageArtists';
 import Footer from 'src/components/Footer';
+import ArtistesPage from 'src/components/ArtistesPage';
 
 import './styles.scss';
 
@@ -20,6 +21,11 @@ const App = () => (
         <CarouselComponent />
         <HomepageEvents />
         <HomepageArtists />
+        <Footer />
+      </Route>
+      <Route exact path="/artistes">
+        <Header />
+        <ArtistesPage />
         <Footer />
       </Route>
       <Route exact path="/connexion">

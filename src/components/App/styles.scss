@@ -16,42 +16,40 @@ body {
   background-color: #fffff8;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin-top: 50px;
-  border-top: 1px solid #333;
-  min-height: 80px;
-  height: fit-content;
+.artistes-page {
   width: 100%;
-  // background-color: blanchedalmond;
+  height: 100vh;
 
-  &__sponsors {
-    img {
-      width: 50px;
+  &__best {
+    background-color: blanchedalmond;
+    width: 90%;
+    max-width: 900px;
+    height: 400px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 2rem;
+    text-align: center;
+
+    &__title {
+      font-size: 2.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin: 0.5rem 0;
     }
-    width: 150px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
 
-  &__ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-
-    &__li {
-      margin: 0 1rem;
+    &__container {
+      width: 100%;
+      margin-top: -1rem;
+      height: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
     }
   }
 }
 
-@media screen and (max-width: 400px) {
-  .footer__sponsors img {
-    width: 30px;
-  }
-}
+// @media screen and (max-width: 964px) {
+
+// }
+

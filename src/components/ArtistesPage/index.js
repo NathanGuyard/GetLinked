@@ -26,7 +26,7 @@ const ArtistesPage = () => (
           <option value="rap">Rap</option>
         </select>
         <input type="text" name="artistesPageLocation" id="artistesPageLocation" placeholder="Localisation (ville)" className="artistes-page__from__input" />
-        <input type="number" name="artistesPageNumber" id="artistesPageNumber" min="1" max="50" range="1" className="artistes-page__from__input" />
+        <input type="number" name="artistesPageNumber" id="artistesPageNumber" min="1" max="50" range="1" className="artistes-page__from__input" placeholder="Nombre d'artistes" />
       </div>
     </form>
     <div className="artistes-page__list">
@@ -41,9 +41,9 @@ const ArtistesPage = () => (
         <LittleCard />
       </div>
       <div className="artistes-page__list__nav">
-        <a>prev</a>
+        <a href="#">prev</a>
         <p>1/25</p>
-        <a>next</a>
+        <a href="#">next</a>
       </div>
     </div>
   </div>

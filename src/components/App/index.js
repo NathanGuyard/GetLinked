@@ -7,6 +7,7 @@ import CarouselComponent from 'src/components/CarouselComponent';
 import HomepageEvents from 'src/components/HomepageEvents';
 import HomepageArtists from 'src/components/HomepageArtists';
 import Footer from 'src/components/Footer';
+import LoginForm from 'src/components/LoginForm'
 
 import './styles.scss';
 
@@ -24,7 +25,8 @@ const App = () => (
       </Route>
       <Route exact path="/connexion">
         <Header />
-        Page connexion
+        <LoginForm />
+        <Footer/>
       </Route>
       <Route>
         Erreur 404

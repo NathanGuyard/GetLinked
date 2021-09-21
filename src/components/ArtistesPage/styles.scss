@@ -29,9 +29,53 @@
       flex-wrap: wrap;
     }
   }
+
+
+  &__from {
+    margin: 3rem auto;
+    width: 90%;
+    max-width: 900px;
+    height: fit-content;
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__bottom {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    &__title {
+      font-size: 1.8rem;
+      margin: 1rem 0;
+      text-align: center;
+    }
+    
+    &__input {
+      width: 200px;
+      height: 40px;
+      padding-left: 10px;
+      margin: 1rem;
+    }
+
+    &__input--search {
+      max-width: 600px;
+      width: 90%;
+      height: 40px;
+      padding-left: 10px;
+    }
+  }
 }
 
-// @media screen and (max-width: 964px) {
-
-// }
-
+@media screen and (max-width: 410px) {
+  .artistes-page__best__title {
+    font-size: 1.4rem;
+  }
+  .artistes-page__from__title {
+    font-size: 1.2rem;
+  }
+}

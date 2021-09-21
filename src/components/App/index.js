@@ -1,5 +1,7 @@
 // == Import
 
+import { Switch, Route } from 'react-router-dom';
+
 import Header from 'src/components/Header';
 import CarouselComponent from 'src/components/CarouselComponent';
 import HomepageEvents from 'src/components/HomepageEvents';
@@ -12,11 +14,22 @@ import './styles.scss';
 const App = () => (
   <div className="app">
     {/* ----------- Header -------------- */}
-    <Header />
-    <CarouselComponent />
-    <HomepageEvents />
-    <HomepageArtists />
-    <Footer />
+    <Switch>
+      <Route exact path="/">
+        <Header />
+        <CarouselComponent />
+        <HomepageEvents />
+        <HomepageArtists />
+        <Footer />
+      </Route>
+      <Route exact path="/connexion">
+        <Header />
+        Page connexion
+      </Route>
+      <Route>
+        Erreur 404
+      </Route>
+    </Switch>
   </div>
 );
 

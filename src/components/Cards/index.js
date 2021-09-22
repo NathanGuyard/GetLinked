@@ -1,6 +1,6 @@
 // == Import
 import banner from './images/banner.jpg';
-import guillaume from './images/guillaume.jpg';
+import nathan from './images/nathan.jpg';
 import etoile from './images/etoile.png';
 import etoileTwo from './images/etoile2.png';
 import pin from './images/pin2.png';
@@ -12,7 +12,7 @@ const Cards = () => (
   <div className="card">
     <img src={banner} alt="" className="card__banner" />
     <div className="card__main">
-      <img src={guillaume} alt="" className="card__main__profile" />
+      <img src={nathan} alt="" className="card__main__profile" />
       <h1 className="card__main__title">Titre</h1>
       <div className="card__main__note">
         <img src={etoile} alt="" className="card__main__note__stars" />

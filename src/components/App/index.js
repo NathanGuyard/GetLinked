@@ -11,9 +11,7 @@ import LoginForm from 'src/components/LoginForm';
 import ArtistesPage from 'src/components/ArtistesPage';
 import EventsPage from 'src/components/EventsPage';
 import PromotersPage from 'src/components/PromotersPage';
-
-import mug from './images/mug.png';
-import mug2 from './images/mug2.png';
+import ErrorPage from 'src/components/ErrorPage';
 
 import './styles.scss';
 
@@ -50,9 +48,7 @@ const App = () => (
       </Route>
       <Route>
         <Header />
-        404 mug not found
-        <img src={mug} alt="" />
-        <img src={mug2} alt="" />
+        <ErrorPage />
       </Route>
     </Switch>
   </div>

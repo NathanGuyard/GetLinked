@@ -1,0 +1,53 @@
+.errorpage {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  &__title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 2rem 0;
+  }
+
+  &__img {
+    width: 300px;
+    animation: movingError 5s infinite linear;
+    position: absolute;
+    top: 90%;
+  }
+}
+
+@keyframes movingError {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .errorpage__img {
+    width: 200px;
+  }
+  .errorpage__title {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .errorpage__img {
+    width: 100px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .errorpage__title {
+    font-size: 1.5rem;
+  }
+}

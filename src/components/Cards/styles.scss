@@ -9,6 +9,7 @@ $bannerHeight: 100px;
   border-radius: 8px;
   overflow: hidden;
   margin: 2rem;
+  transition: all 0.2s ease-in-out;
   // background-color: #534f63;
   // color: white;
   color: #333;
@@ -90,4 +91,9 @@ $bannerHeight: 100px;
     }
 
   }
+}
+
+.card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }

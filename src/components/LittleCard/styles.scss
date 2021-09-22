@@ -9,6 +9,7 @@ $bannerHeight: 100px;
   border-radius: 8px;
   overflow: hidden;
   margin: 2rem;
+  transition: all 0.2s ease-in-out;
   color: #333;
   background: radial-gradient(at top,#fff 20%,#d2d2d2 100%);
   font-weight: 500;
@@ -73,4 +74,9 @@ $bannerHeight: 100px;
     }
 
   }
+}
+
+.little-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }

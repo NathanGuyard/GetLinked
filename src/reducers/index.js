@@ -1,5 +1,6 @@
 const initialState = {
   menuOpened: false,
+  users: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -8,6 +9,10 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         menuOpened: !state.menuOpened,
+      };
+    case 'LOAD_USERS':
+      return {
+        users: action.users,
       };
     default:
       return state;

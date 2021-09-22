@@ -33,6 +33,8 @@ $bannerHeight: 100px;
 
     &__profile {
       width: $profileWidth;
+      height: $profileWidth;
+      object-fit: cover;
       border-radius: 50%;
       position: absolute;
       top: calc(-110px / 2);
@@ -41,7 +43,7 @@ $bannerHeight: 100px;
     }
 
     &__title {
-      font-size: 1.8rem;
+      font-size: 1.3rem;
 
     }
 

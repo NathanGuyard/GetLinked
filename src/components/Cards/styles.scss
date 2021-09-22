@@ -35,6 +35,7 @@ $bannerHeight: 100px;
 
     &__profile {
       width: $profileWidth;
+      height: $profileWidth;
       border-radius: 50%;
       position: absolute;
       top: calc(-110px / 2);

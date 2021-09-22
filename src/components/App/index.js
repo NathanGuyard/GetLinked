@@ -12,6 +12,7 @@ import ArtistesPage from 'src/components/ArtistesPage';
 import EventsPage from 'src/components/EventsPage';
 import PromotersPage from 'src/components/PromotersPage';
 import ErrorPage from 'src/components/ErrorPage';
+import ArtisteDetail from 'src/components/ArtisteDetail';
 
 import './styles.scss';
 
@@ -30,6 +31,11 @@ const App = () => (
       <Route exact path="/artistes">
         <Header />
         <ArtistesPage />
+        <Footer />
+      </Route>
+      <Route exact path="/artistes/:id">
+        <Header />
+        <ArtisteDetail />
         <Footer />
       </Route>
       <Route exact path="/evenements">

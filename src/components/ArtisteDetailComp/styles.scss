@@ -3,7 +3,11 @@ $profil-picture-width: 350px;
 .detail-container{
   &__top {
     height: 400px;
+<<<<<<< HEAD
     width: 100%;
+=======
+    width: 100vw;
+>>>>>>> 259ac832a96def3ab6f06bda6851530443dd8bb0
     object-fit: cover;
   }
   &__main {
@@ -85,7 +89,10 @@ $profil-picture-width: 350px;
     &__profile {
       top: -125px;
       width: 250px;
+<<<<<<< HEAD
       height: 250px;
+=======
+>>>>>>> 259ac832a96def3ab6f06bda6851530443dd8bb0
       left: calc(50% - calc(250px / 2));
     }
   }
@@ -102,7 +109,10 @@ $profil-picture-width: 350px;
     &__profile {
       top: -75px;
       width: 150px;
+<<<<<<< HEAD
       height: 150px;
+=======
+>>>>>>> 259ac832a96def3ab6f06bda6851530443dd8bb0
       left: calc(50% - calc(150px / 2));
     }
   }

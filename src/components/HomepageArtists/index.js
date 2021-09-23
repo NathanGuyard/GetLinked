@@ -1,6 +1,7 @@
 // == Import
 
 import Cards from 'src/components/Cards';
+import { useSelector } from 'react-redux';
 
 import './styles.scss';
 

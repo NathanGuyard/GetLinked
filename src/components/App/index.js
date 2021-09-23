@@ -1,7 +1,8 @@
 // == Import
 
 import { Switch, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 import Header from 'src/components/Header';
 import CarouselComponent from 'src/components/CarouselComponent';
@@ -14,7 +15,9 @@ import EventsPage from 'src/components/EventsPage';
 import PromotersPage from 'src/components/PromotersPage';
 import ErrorPage from 'src/components/ErrorPage';
 import ArtisteDetail from 'src/components/ArtisteDetail';
+
 import PromoterDetail from 'src/components/PromoterDetail';
+import Loading from 'src/components/Loading';
 
 import './styles.scss';
 
@@ -22,12 +25,17 @@ import './styles.scss';
 const App = () => {
   const dispatch = useDispatch();
 
-  document.addEventListener('DOMContentLoaded', () => {
-    // console.log('DOM loaded');
+  useEffect(() => {
     dispatch({
-      type: 'API_USERS',
+      type: 'FETCH_ARTISTS',
     });
-  });
+  }, []);
+
+  const loading = useSelector((state) => state.loading);
+  
+  if(loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="app">
@@ -45,7 +53,7 @@ const App = () => {
           <ArtistesPage />
           <Footer />
         </Route>
-        <Route exact path="/artistes/:id">
+        <Route exact path="/artistes/:slug">
           <Header />
           <ArtisteDetail />
           <Footer />

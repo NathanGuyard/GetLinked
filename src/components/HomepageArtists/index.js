@@ -7,7 +7,7 @@ import './styles.scss';
 // == Composant
 const HomepageArtists = () => (
   <div className="upcomming-events">
-    <h1 className="upcomming-events__title">artists du moment</h1>
+    <h1 className="upcomming-events__title">artistes du moment</h1>
     <div className="upcomming-events__content">
       <Cards />
       <Cards />

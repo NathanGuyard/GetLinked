@@ -3,7 +3,7 @@ $profil-picture-width: 350px;
 .detail-container{
   &__top {
     height: 400px;
-    width: 100vw;
+    width: 100%;
     object-fit: cover;
   }
   &__main {
@@ -85,6 +85,7 @@ $profil-picture-width: 350px;
     &__profile {
       top: -125px;
       width: 250px;
+      height: 250px;
       left: calc(50% - calc(250px / 2));
     }
   }
@@ -92,6 +93,9 @@ $profil-picture-width: 350px;
     &__top {
       height: 300px;
     }
+  }
+  .detail-container__main__title {
+    font-size: 2rem;
   }
 }
 
@@ -101,6 +105,7 @@ $profil-picture-width: 350px;
     &__profile {
       top: -75px;
       width: 150px;
+      height: 150px;
       left: calc(50% - calc(150px / 2));
     }
   }

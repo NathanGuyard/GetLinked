@@ -17,23 +17,27 @@ const ArtistesPage = () => {
   }, []);
 
   const users = useSelector((state) => state.users);
-  // console.log(users);
   const artists = [];
   users.forEach((user) => {
     if (user.type === 'artiste') {
       artists.push(user);
     }
   });
-  // console.log(artists);
+
+  const betterRatedArtists = [];
+  for (let index = 0; index < 3; index++) {
+    betterRatedArtists.push(artists[index])
+  }
+  console.log(betterRatedArtists)
 
   return (
     <div className="artistes-page">
       <div className="artistes-page__best">
         <h1 className="artistes-page__best__title">Les mieux notés</h1>
         <div className="artistes-page__best__container">
-          {/* <LittleCard />
-          <LittleCard />
-          <LittleCard /> */}
+          {betterRatedArtists.map((artist) => (
+            <LittleCard key={artist.id} {...artist} />
+          ))}
         </div>
       </div>
       <form method="get" className="artistes-page__from">
@@ -53,7 +57,6 @@ const ArtistesPage = () => {
       <div className="artistes-page__list">
         <div className="artistes-page__list__container">
           {artists.map((artist) => (
-            // console.log(artist.id)
             <LittleCard key={artist.id} {...artist} />
           ))}
         </div>

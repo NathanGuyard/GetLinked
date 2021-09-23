@@ -3,6 +3,8 @@
 import './styles.scss';
 
 import { Carousel } from 'react-carousel-minimal';
+import { useParams } from 'react-router';
+import { useSelector, useDispatch } from 'react-redux';
 
 import banner from './images/banner.jpg';
 import guillaume from './images/guillaume.jpg';
@@ -33,6 +35,7 @@ const PromoterDetail = () => {
     fontSize: '2em',
     fontWeight: 'bold',
   };
+
   return (
     <div className="detail-container">
       <img src={banner} alt="" className="detail-container__top" />

@@ -17,14 +17,14 @@ const ArtistesPage = () => {
   }, []);
 
   const users = useSelector((state) => state.users);
-  console.log(users);
+  // console.log(users);
   const artists = [];
   users.forEach((user) => {
     if (user.type === 'artiste') {
       artists.push(user);
     }
   });
-  console.log(artists);
+  // console.log(artists);
 
   return (
     <div className="artistes-page">

@@ -21,9 +21,10 @@ const LittleCard = ({
   nb_members,
   address,
   email,
-  slug
+  slug,
+  type
 }) => (
-  <Link to={`artistes/${slug}`}>
+  <Link to={`${type + "s"}/${slug}`}>
     <div className="little-card">
       <img src={banner} alt="" className="little-card__banner" />
       <div className="little-card__main">
@@ -57,6 +58,7 @@ LittleCard.propTypes = {
   address: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 // == Export

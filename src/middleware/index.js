@@ -13,10 +13,20 @@ const APIMiddleware = (store) => (next) => (action) => {
         });
       });
   }
+
   if (action.type === 'FETCH_ARTISTS') {
-    axios.get('http://gaelle-ruf.vpnuser.lan:3001/api/v1/users')
+    axios.get('http://localhost:3001/api/v1/users/')
       .then((response) => {
         // console.log(response.data);
+        store.dispatch({ 
+          type: 'LOAD_USERS',
+          users: response.data,
+        });
+      });
+  }
+  else if (action.type === 'FETCH_ARTISTS_DETAIL') {
+    axios.get('http://localhost:3001/api/v1/users/')
+      .then((response) => {
         store.dispatch({
           type: 'LOAD_USERS',
           users: response.data,

@@ -17,26 +17,18 @@ const ArtistesPage = () => {
   }, []);
 
   const users = useSelector((state) => state.users);
-<<<<<<< HEAD
-=======
-  // console.log(users);
->>>>>>> 259ac832a96def3ab6f06bda6851530443dd8bb0
   const artists = [];
   users.forEach((user) => {
     if (user.type === 'artiste') {
       artists.push(user);
     }
   });
-<<<<<<< HEAD
 
   const betterRatedArtists = [];
   for (let index = 0; index < 3; index++) {
     betterRatedArtists.push(artists[index])
   }
   console.log(betterRatedArtists)
-=======
-  // console.log(artists);
->>>>>>> 259ac832a96def3ab6f06bda6851530443dd8bb0
 
   return (
     <div className="artistes-page">

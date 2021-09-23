@@ -14,11 +14,10 @@ import ArtistesPage from 'src/components/ArtistesPage';
 import EventsPage from 'src/components/EventsPage';
 import PromotersPage from 'src/components/PromotersPage';
 import ErrorPage from 'src/components/ErrorPage';
-<<<<<<< HEAD
+
 import UserDetail from 'src/components/UserDetail';
-=======
-import ArtisteDetail from 'src/components/ArtisteDetail';
->>>>>>> 259ac832a96def3ab6f06bda6851530443dd8bb0
+
+// import ArtisteDetail from 'src/components/ArtisteDetail';
 
 import PromoterDetail from 'src/components/PromoterDetail';
 import Loading from 'src/components/Loading';

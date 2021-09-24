@@ -12,6 +12,12 @@ const reducer = (state = initialState, action = {}) => {
         menuOpened: !state.menuOpened,
         loading: false,
       };
+    case 'CLOSE_MENU':
+      return {
+        ...state,
+        menuOpened: false,
+        loading: false,
+      };
     case 'LOAD_USERS':
       return {
         ...state,

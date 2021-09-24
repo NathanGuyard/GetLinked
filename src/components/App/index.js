@@ -1,6 +1,6 @@
 // == Import
 
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -34,13 +34,20 @@ const App = () => {
     });
   }, []);
 
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scroll(0, 0);
+    // dispatch({
+    //   type: 'CLOSE_MENU',
+    // });
+  }, [pathname]);
+
   const loading = useSelector((state) => state.loading);
+
   if (loading) {
     return <Loading />;
   }
-
-  // code en dessous :
-  // const menuOpened = useSelector((state) => state.menuOpened);
 
   return (
     <div className="app">

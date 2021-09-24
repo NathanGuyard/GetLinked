@@ -25,7 +25,7 @@ const HomepageArtists = () => {
   // console.log(bestArtists)
   const bestArtists = [];
   for (let index = 0; index < 4; index++) {
-    bestArtists.push(artists[index])
+    bestArtists.push(artists[index]);
   }
   // console.log(bestArtists)
   return (

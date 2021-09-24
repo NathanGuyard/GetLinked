@@ -11,6 +11,7 @@ import nathan from './images/nathan.jpg';
 import etoile from './images/etoile.png';
 import etoileTwo from './images/etoile2.png';
 import pin from './images/pin2.png';
+import profil from './images/profil.jpeg';
 
 import './styles.scss';
 
@@ -33,7 +34,8 @@ const Cards = ({
       {type === 'organisateur' && <img src={banner} alt="" className="card__banner" />}
       {type === 'event' && <img src={banner3} alt="" className="card__banner" />}
       <div className="card__main">
-        <img src={picture} alt="" className="card__main__profile" />
+        {picture !== undefined && <img src={picture} alt="" className="card__main__profile" />}
+        {picture === undefined && <img src={profil} alt="" className="card__main__profile" />}
         <h1 className="card__main__title">{name}</h1>
         <div className="card__main__note">
           <img src={etoile} alt="" className="card__main__note__stars" />

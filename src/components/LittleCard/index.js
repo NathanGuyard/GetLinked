@@ -10,6 +10,7 @@ import guillaume from './images/guillaume.jpg';
 import etoile from './images/etoile.png';
 import etoileTwo from './images/etoile2.png';
 import pin from './images/pin2.png';
+import profil from './images/profil.jpeg';
 
 import './styles.scss';
 
@@ -26,13 +27,14 @@ const LittleCard = ({
   slug,
   type,
 }) => (
-  <Link to={`${type + "s"}/${slug}`}>
+  <Link to={`${type + 's'}/${slug}`}>
     <div className="little-card">
       {type === 'artiste' && <img src={banner4} alt="" className="little-card__banner" />}
       {type === 'organisateur' && <img src={banner2} alt="" className="little-card__banner" />}
       {type === 'event' && <img src={banner3} alt="" className="little-card__banner" />}
       <div className="little-card__main">
-        <img src={picture} alt="" className="little-card__main__profile" />
+        {picture !== undefined && <img src={picture} alt="" className="little-card__main__profile" />}
+        {picture === undefined && <img src={profil} alt="" className="little-card__main__profile" />}
         <h1 className="little-card__main__title">{name}</h1>
         <div className="little-card__main__note">
           <img src={etoile} alt="" className="little-card__main__note__stars" />

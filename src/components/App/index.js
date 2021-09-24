@@ -38,15 +38,9 @@ const App = () => {
 
   useEffect(() => {
     window.scroll(0, 0);
-    // dispatch({
-    //   type: 'CLOSE_MENU',
-    // });
-
-    // setTimeout(() => {
-    //   dispatch({
-    //     type: 'CLOSE_MENU',
-    //   });
-    // }, 1000);
+    dispatch({
+      type: 'CLOSE_MENU',
+    });
   }, [pathname]);
 
   const loading = useSelector((state) => state.loading);

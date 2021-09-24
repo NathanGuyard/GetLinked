@@ -16,7 +16,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         menuOpened: false,
-        loading: false,
+        // loading: false,
       };
     case 'LOAD_USERS':
       return {

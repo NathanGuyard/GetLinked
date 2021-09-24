@@ -3,7 +3,9 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import banner from './images/banner.jpg';
+import banner4 from './images/banner4.jpeg';
+import banner3 from './images/banner3.jpeg';
+import banner2 from './images/banner2.jpeg';
 import guillaume from './images/guillaume.jpg';
 import etoile from './images/etoile.png';
 import etoileTwo from './images/etoile2.png';
@@ -22,11 +24,13 @@ const LittleCard = ({
   address,
   email,
   slug,
-  type
+  type,
 }) => (
   <Link to={`${type + "s"}/${slug}`}>
     <div className="little-card">
-      <img src={banner} alt="" className="little-card__banner" />
+      {type === 'artiste' && <img src={banner4} alt="" className="little-card__banner" />}
+      {type === 'organisateur' && <img src={banner2} alt="" className="little-card__banner" />}
+      {type === 'event' && <img src={banner3} alt="" className="little-card__banner" />}
       <div className="little-card__main">
         <img src={picture} alt="" className="little-card__main__profile" />
         <h1 className="little-card__main__title">{name}</h1>

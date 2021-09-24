@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import banner from './images/banner.jpg';
+import banner3 from './images/banner3.jpeg';
+import banner4 from './images/banner4.jpeg';
 import nathan from './images/nathan.jpg';
 import etoile from './images/etoile.png';
 import etoileTwo from './images/etoile2.png';
@@ -22,11 +24,14 @@ const Cards = ({
   nb_members,
   address,
   email,
-  slug
+  slug,
+  type,
 }) => (
   <Link to={`artistes/${slug}`}>
     <div className="card">
-      <img src={banner} alt="" className="card__banner" />
+      {type === 'artiste' && <img src={banner4} alt="" className="card__banner" />}
+      {type === 'organisateur' && <img src={banner} alt="" className="card__banner" />}
+      {type === 'event' && <img src={banner3} alt="" className="card__banner" />}
       <div className="card__main">
         <img src={picture} alt="" className="card__main__profile" />
         <h1 className="card__main__title">{name}</h1>
@@ -61,6 +66,7 @@ Cards.propTypes = {
   address: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 // == Export

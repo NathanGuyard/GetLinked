@@ -1,3 +1,5 @@
+/* eslint-disable spaced-comment */
+/* eslint-disable no-plusplus */
 // == Import
 
 import Cards from 'src/components/Cards';
@@ -33,7 +35,7 @@ const HomepageArtists = () => {
       <h1 className="upcomming-events__title">artistes du moment</h1>
       <div className="upcomming-events__content">
         {bestArtists.map((bestArtist) => (
-          <Cards key={bestArtist.id} {...bestArtist} />
+          <Cards key={bestArtist.id} {...bestArtist} type="artiste" />
         ))}
       </div>
     </div>

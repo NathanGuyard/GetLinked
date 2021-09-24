@@ -1,13 +1,14 @@
-import { useParams } from 'react-router';
 import './styles.scss';
-import nathan from './images/nathan.jpg';
 
+import { Link } from 'react-router-dom';
+
+import nathan from './images/nathan.jpg';
 
 const Profile = () => (
   <div className="profil">
 
     <img src={nathan} alt="" className="profil__img"/>
-    
+
     <p className="profil__info__firstName info">Nom :</p>
     <p className="infos">Nathan</p>
 
@@ -32,10 +33,11 @@ const Profile = () => (
     <p className="profil__info__email info">Email : UltraSimp@gmail.com</p>
     <p className="infos">UltraSimp@gmail.com</p>
 
-    <button className="profil__modif">Modifier le profil</button>
+    <Link to="/modifier-le-compte" className="profil__modif">
+      <button type="button" className="profil__modif__button">Modifier le profil</button>
+    </Link>
 
   </div>
 );
-
 
 export default Profile;

@@ -85,6 +85,7 @@ const App = () => {
         <Route exact path="/profil">
           <Header />
           <Profile />
+          <Footer />
         </Route>
         <Route exact path="/nouveau-compte">
           <Header />

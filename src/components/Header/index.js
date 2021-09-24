@@ -39,6 +39,9 @@ const Header = () => {
             <NavLink exact to="/organisateurs" activeClassName="header__menu-opened__ul__li__active">
               <li className="header__menu-opened__ul__li">Organisateurs</li>
             </NavLink>
+            <NavLink exact to="/profil" activeClassName="header__menu-opened__ul__li__active">
+              <li className="header__menu-opened__ul__li">Profil</li>
+            </NavLink>
             <NavLink exact to="/connexion" activeClassName="header__menu-opened__ul__li__active">
               <li className="header__menu-opened__ul__li">Connexion</li>
             </NavLink>

@@ -14,6 +14,9 @@ import ArtistesPage from 'src/components/ArtistesPage';
 import EventsPage from 'src/components/EventsPage';
 import PromotersPage from 'src/components/PromotersPage';
 import ErrorPage from 'src/components/ErrorPage';
+import Profile from 'src/components/Profile';
+import Register from 'src/components/Register';
+import EditProfile from 'src/components/EditProfile';
 
 import UserDetail from 'src/components/UserDetail';
 
@@ -31,11 +34,14 @@ const App = () => {
     });
   }, []);
 
-  const loading = useSelector((state) => state.loading);
-  
+  const loading = useSelector((state) => state.loading);  
   if(loading) {
     return <Loading />;
   }
+
+
+  // code en dessous :
+  // const menuOpened = useSelector((state) => state.menuOpened);
 
   return (
     <div className="app">
@@ -76,6 +82,18 @@ const App = () => {
         <Route exact path="/connexion">
           <Header />
           <LoginForm />
+        </Route>
+        <Route exact path="/profil">
+          <Header />
+          <Profile />
+        </Route>
+        <Route exact path="/nouveau-compte">
+          <Header />
+          <Register />
+        </Route>
+        <Route exact path="/modifier-le-compte">
+          <Header />
+          <EditProfile />
         </Route>
         <Route>
           <Header />

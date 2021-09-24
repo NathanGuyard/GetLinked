@@ -41,6 +41,12 @@ const App = () => {
     // dispatch({
     //   type: 'CLOSE_MENU',
     // });
+
+    // setTimeout(() => {
+    //   dispatch({
+    //     type: 'CLOSE_MENU',
+    //   });
+    // }, 1000);
   }, [pathname]);
 
   const loading = useSelector((state) => state.loading);

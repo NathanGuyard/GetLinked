@@ -48,6 +48,32 @@ const Header = () => {
           </ul>
         </div>
       )}
+
+      <div className="header__menu--laptop">
+        <div className="header__menu--laptop__left">
+          <NavLink exact to="/" activeClassName="header__menu-opened__ul__li__active">
+            Accueil
+          </NavLink>
+          <NavLink exact to="/artistes" activeClassName="header__menu-opened__ul__li__active">
+            Artistes
+          </NavLink>
+          <NavLink exact to="/evenements" activeClassName="header__menu-opened__ul__li__active">
+            Evenements
+          </NavLink>
+        </div>
+        <Link to="/"><img src={logo} alt="logo" className="header__menu__logo" /></Link>
+        <div className="header__menu--laptop__right">
+          <NavLink exact to="/organisateurs" activeClassName="header__menu-opened__ul__li__active">
+            Organisateurs
+          </NavLink>
+          <NavLink exact to="/profil" activeClassName="header__menu-opened__ul__li__active">
+            Profil
+          </NavLink>
+          <NavLink exact to="/connexion" activeClassName="header__menu-opened__ul__li__active">
+            Connexion
+          </NavLink>
+        </div>
+      </div>
     </div>
   );
 };

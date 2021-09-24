@@ -34,11 +34,10 @@ const App = () => {
     });
   }, []);
 
-  const loading = useSelector((state) => state.loading);  
-  if(loading) {
+  const loading = useSelector((state) => state.loading);
+  if (loading) {
     return <Loading />;
   }
-
 
   // code en dessous :
   // const menuOpened = useSelector((state) => state.menuOpened);
@@ -90,6 +89,7 @@ const App = () => {
         <Route exact path="/nouveau-compte">
           <Header />
           <Register />
+          <Footer />
         </Route>
         <Route exact path="/modifier-le-compte">
           <Header />

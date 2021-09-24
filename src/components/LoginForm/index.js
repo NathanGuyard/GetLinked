@@ -1,5 +1,6 @@
 // == Import
 import './styles.scss';
+import { Link } from 'react-router-dom';
 
 // == Composant
 const LoginForm = () => (
@@ -11,7 +12,12 @@ const LoginForm = () => (
 
       <label htmlFor="password" className="form__container__info__labelPassword">Mot de passe</label>
       <input type="password" name="password" id="password" className="form__container__info__password"/>
+
       <button type="submit" className="form__container__info__login">Connexion</button>
+
+      <Link to="/nouveau-compte">
+        <p className="form__container__info__p">Vous n'avez pas encore de compte ? Cliquez ici</p>
+      </Link>
     </form>
   </div>
 );

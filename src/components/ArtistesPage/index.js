@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 // == Import
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -26,7 +27,7 @@ const ArtistesPage = () => {
 
   const betterRatedArtists = [];
   for (let index = 0; index < 3; index++) {
-    betterRatedArtists.push(artists[index])
+    betterRatedArtists.push(artists[index]);
   }
   // console.log(betterRatedArtists)
 

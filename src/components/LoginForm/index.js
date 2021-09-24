@@ -10,7 +10,7 @@ const LoginForm = () => (
       <input type="email" name="email" id="email" className="form__container__info__email" />
 
       <label htmlFor="password" className="form__container__info__labelPassword">Mot de passe</label>
-      <input type="password" name="password" id="password"className="form__container__info__password"/>
+      <input type="password" name="password" id="password" className="form__container__info__password"/>
       <button type="submit" className="form__container__info__login">Connexion</button>
     </form>
   </div>

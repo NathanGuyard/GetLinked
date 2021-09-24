@@ -17,9 +17,6 @@ import ErrorPage from 'src/components/ErrorPage';
 
 import UserDetail from 'src/components/UserDetail';
 
-// import ArtisteDetail from 'src/components/ArtisteDetail';
-
-import PromoterDetail from 'src/components/PromoterDetail';
 import Loading from 'src/components/Loading';
 
 import './styles.scss';

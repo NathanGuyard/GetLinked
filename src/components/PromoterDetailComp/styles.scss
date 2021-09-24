@@ -19,6 +19,7 @@ $profil-picture-width: 350px;
       height: $profil-picture-width;
       top: -175px;
       left: calc(50% - calc($profil-picture-width / 2));
+      object-fit: cover;
     }
     
     &__title {

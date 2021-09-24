@@ -42,6 +42,7 @@ $bannerHeight: 100px;
       top: calc(-110px / 2);
       left: calc(50% - 55px);
       border: 1px solid #333;
+      object-fit: cover;
     }
 
     &__title {
@@ -96,4 +97,10 @@ $bannerHeight: 100px;
 .card:hover {
   transform: scale(1.05);
   cursor: pointer;
+}
+
+@media screen and (max-width: 375px) {
+  .card {
+    margin: 2rem auto;
+  }
 }

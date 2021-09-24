@@ -14,7 +14,7 @@ const HomepageArtists = () => {
       artists.push(user);
     }
   });
-  console.log(artists)
+  // console.log(artists)
 
   //TODO le random peut être deux fois le même
   // const bestArtists = [];
@@ -27,7 +27,7 @@ const HomepageArtists = () => {
   for (let index = 0; index < 4; index++) {
     bestArtists.push(artists[index])
   }
-  console.log(bestArtists)
+  // console.log(bestArtists)
   return (
     <div className="upcomming-events">
       <h1 className="upcomming-events__title">artistes du moment</h1>

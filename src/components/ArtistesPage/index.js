@@ -28,7 +28,7 @@ const ArtistesPage = () => {
   for (let index = 0; index < 3; index++) {
     betterRatedArtists.push(artists[index])
   }
-  console.log(betterRatedArtists)
+  // console.log(betterRatedArtists)
 
   return (
     <div className="artistes-page">

@@ -13,10 +13,6 @@ import second from './images/second.jpg';
 import third from './images/third.jpg';
 import fourth from './images/fourth.jpg';
 
-import { useParams } from 'react-router';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-
 const ArtisteDetailComp = ({ userDetail }) => {
   const data = [
     {

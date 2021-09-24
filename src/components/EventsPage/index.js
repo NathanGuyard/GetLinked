@@ -10,9 +10,9 @@ const EventsPage = () => (
     <div className="events-page__best">
       <h1 className="events-page__best__title">événements du moment</h1>
       <div className="events-page__best__container">
-        <LittleCard />
-        <LittleCard />
-        <LittleCard />
+        <LittleCard type="event" />
+        <LittleCard type="event" />
+        <LittleCard type="event" />
       </div>
     </div>
     <form method="get" className="events-page__from">
@@ -31,14 +31,14 @@ const EventsPage = () => (
     </form>
     <div className="events-page__list">
       <div className="events-page__list__container">
-        <LittleCard />
-        <LittleCard />
-        <LittleCard />
-        <LittleCard />
-        <LittleCard />
-        <LittleCard />
-        <LittleCard />
-        <LittleCard />
+        <LittleCard type="event" />
+        <LittleCard type="event" />
+        <LittleCard type="event" />
+        <LittleCard type="event" />
+        <LittleCard type="event" />
+        <LittleCard type="event" />
+        <LittleCard type="event" />
+        <LittleCard type="event" />
       </div>
       <div className="events-page__list__nav">
         <a href="#">prev</a>

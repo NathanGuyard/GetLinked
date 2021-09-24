@@ -6,7 +6,7 @@ const EditProfile = () => (
     <h1 className="register__title">Modifier le compte :</h1>
     <form method="POST" action="" className="register__form">
       <div className="register__form__element">
-        <label htmlFor="type">Vous êtes un ?</label>
+        <label htmlFor="type">Vous êtes :</label>
         <select name="type" id="type" className="register__form__element__input">
           <option value="artiste">Artiste</option>
           <option value="organisateur">Organisateur</option>

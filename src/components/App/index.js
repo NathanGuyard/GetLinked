@@ -17,6 +17,7 @@ import ErrorPage from 'src/components/ErrorPage';
 import Profile from 'src/components/Profile';
 import Register from 'src/components/Register';
 import EditProfile from 'src/components/EditProfile';
+import Faq from 'src/components/Faq';
 
 import UserDetail from 'src/components/UserDetail';
 
@@ -102,6 +103,10 @@ const App = () => {
         <Route exact path="/modifier-le-compte">
           <Header />
           <EditProfile />
+        </Route>
+        <Route exact path="/faq">
+          <Header />
+          <Faq />
         </Route>
         <Route>
           <Header />

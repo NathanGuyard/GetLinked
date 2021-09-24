@@ -29,6 +29,9 @@ const Footer = () => (
       <NavLink exact to="/organisateurs" activeClassName="footer__ul__li__active">
         <li className="footer__ul__li">Organisateurs</li>
       </NavLink>
+      <NavLink exact to="/faq" activeClassName="footer__ul__li__active">
+        <li className="footer__ul__li">FAQ</li>
+      </NavLink>
       <NavLink exact to="/connexion" activeClassName="footer__ul__li__active">
         <li className="footer__ul__li">Connexion</li>
       </NavLink>

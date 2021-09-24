@@ -4,6 +4,7 @@ import './styles.scss';
 
 import { Carousel } from 'react-carousel-minimal';
 import banner from './images/banner.jpg';
+import banner2 from './images/banner2.jpeg';
 import etoile from './images/etoile.png';
 import etoileTwo from './images/etoile2.png';
 import first from './images/first.jpg';
@@ -12,7 +13,6 @@ import third from './images/third.jpg';
 import fourth from './images/fourth.jpg';
 
 const PromoterDetailComp = ({ userDetail }) => {
-
   const data = [
     {
       image: first,
@@ -34,7 +34,7 @@ const PromoterDetailComp = ({ userDetail }) => {
   };
   return (
     <div className="detail-container">
-      <img src={banner} alt="" className="detail-container__top" />
+      <img src={banner2} alt="" className="detail-container__top" />
       <div className="detail-container__main">
         <img src={userDetail.picture} alt="" className="detail-container__main__profile" />
         <h1 className="detail-container__main__title">{userDetail.name}</h1>
@@ -83,9 +83,7 @@ const PromoterDetailComp = ({ userDetail }) => {
         </div>
       </div>
     </div>
-  )
-
-
+  );
 };
 
 export default PromoterDetailComp;

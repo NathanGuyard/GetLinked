@@ -5,6 +5,7 @@ import './styles.scss';
 import { Carousel } from 'react-carousel-minimal';
 
 import banner from './images/banner.jpg';
+import banner4 from './images/banner4.jpeg';
 import etoile from './images/etoile.png';
 import etoileTwo from './images/etoile2.png';
 import guillaume from './images/guillaume.jpg';
@@ -36,7 +37,7 @@ const ArtisteDetailComp = ({ userDetail }) => {
 
   return (
     <div className="detail-container">
-      <img src={banner} alt="" className="detail-container__top" />
+      <img src={banner4} alt="" className="detail-container__top" />
       <div className="detail-container__main">
         <img src={userDetail.picture} alt="" className="detail-container__main__profile" />
         <h1 className="detail-container__main__title">{userDetail.name}</h1>

@@ -1,7 +1,7 @@
 /* eslint-disable no-plusplus */
 // == Import
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import LittleCard from 'src/components/LittleCard';
 
@@ -15,6 +15,40 @@ const EventsPage = () => {
   for (let index = 0; index < 3; index++) {
     betterRatedEvents.push(events[index]);
   }
+
+  function paginator(items, currentPage, perPageItems) {
+    const page = currentPage || 1;
+    const perPage = perPageItems || 10;
+    const offset = (page - 1) * perPage;
+    const paginatedItems = items.slice(offset).slice(0, perPageItems);
+    const totalPages = Math.ceil(items.length / perPage);
+    return {
+      page: page,
+      perPage: perPage,
+      pre_page: page - 1 ? page - 1 : null,
+      next_page: (totalPages > page) ? page + 1 : null,
+      total: items.length,
+      totalPages: totalPages,
+      data: paginatedItems,
+    };
+  }
+  const dispatch = useDispatch();
+  const eventsPage = useSelector((state) => state.eventsPage);
+  const handleNextPage = (event) => {
+    event.preventDefault();
+    dispatch({
+      type: 'INCREASE_EVENTS_PAGE_NUMBER',
+    });
+  };
+  const handlePrevPage = (event) => {
+    event.preventDefault();
+    dispatch({
+      type: 'DECREASE_EVENTS_PAGE_NUMBER',
+    });
+  };
+  const pagination = paginator(events, eventsPage, 6);
+  const numberOfPages = pagination.totalPages;
+  const eventsToDisplay = pagination.data;
 
   return (
     <div className="events-page">
@@ -42,14 +76,14 @@ const EventsPage = () => {
       </form>
       <div className="events-page__list">
         <div className="events-page__list__container">
-          {events.map((artist) => (
+          {eventsToDisplay.map((artist) => (
             <LittleCard key={artist.id} {...artist} type="event" />
           ))}
         </div>
         <div className="events-page__list__nav">
-          <a href="#">prev</a>
-          <p>1/25</p>
-          <a href="#">next</a>
+          {eventsPage > 1 && <a href="#" onClick={handlePrevPage}>prev</a>}
+          <p>{eventsPage}/{numberOfPages}</p>
+          {numberOfPages > eventsPage && <a href="#" onClick={handleNextPage}>next</a>}
         </div>
       </div>
     </div>

@@ -1,7 +1,8 @@
+/* eslint-disable no-plusplus */
 // == Import
 
 import LittleCard from 'src/components/LittleCard';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './styles.scss';
 
@@ -17,8 +18,42 @@ const PromotersPage = () => {
 
   const betterRatedPromoter = [];
   for (let index = 0; index < 3; index++) {
-    betterRatedPromoter.push(promoters[index])
+    betterRatedPromoter.push(promoters[index]);
   }
+
+  function paginator(items, currentPage, perPageItems) {
+    const page = currentPage || 1;
+    const perPage = perPageItems || 10;
+    const offset = (page - 1) * perPage;
+    const paginatedItems = items.slice(offset).slice(0, perPageItems);
+    const totalPages = Math.ceil(items.length / perPage);
+    return {
+      page: page,
+      perPage: perPage,
+      pre_page: page - 1 ? page - 1 : null,
+      next_page: (totalPages > page) ? page + 1 : null,
+      total: items.length,
+      totalPages: totalPages,
+      data: paginatedItems,
+    };
+  }
+  const dispatch = useDispatch();
+  const promotersPage = useSelector((state) => state.promotersPage);
+  const handleNextPage = (event) => {
+    event.preventDefault();
+    dispatch({
+      type: 'INCREASE_PROMOTERS_PAGE_NUMBER',
+    });
+  };
+  const handlePrevPage = (event) => {
+    event.preventDefault();
+    dispatch({
+      type: 'DECREASE_PROMOTERS_PAGE_NUMBER',
+    });
+  };
+  const pagination = paginator(promoters, promotersPage, 6);
+  const numberOfPages = pagination.totalPages;
+  const promotersToDisplay = pagination.data;
 
   return (
     <div className="promoters-page">
@@ -46,14 +81,14 @@ const PromotersPage = () => {
       </form>
       <div className="promoters-page__list">
         <div className="promoters-page__list__container">
-          {promoters.map((promoter) => (
+          {promotersToDisplay.map((promoter) => (
             <LittleCard key={promoter.id} {...promoter} />
           ))}
         </div>
         <div className="promoters-page__list__nav">
-          <a href="#">prev</a>
-          <p>1/25</p>
-          <a href="#">next</a>
+          {promotersPage > 1 && <a href="#" onClick={handlePrevPage}>prev</a>}
+          <p>{promotersPage}/{numberOfPages}</p>
+          {numberOfPages > promotersPage && <a href="#" onClick={handleNextPage}>next</a>}
         </div>
       </div>
     </div>

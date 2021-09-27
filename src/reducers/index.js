@@ -4,6 +4,8 @@ const initialState = {
   events: [],
   loading: true,
   artistPage: 1,
+  eventsPage: 1,
+  promotersPage: 1,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -47,6 +49,26 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         artistPage: state.artistPage - 1,
+      };
+    case 'INCREASE_EVENTS_PAGE':
+      return {
+        ...state,
+        eventsPage: state.eventsPage + 1,
+      };
+    case 'DECREASE_EVENTS_PAGE':
+      return {
+        ...state,
+        eventsPage: state.eventsPage - 1,
+      };
+    case 'INCREASE_PROMOTERS_PAGE':
+      return {
+        ...state,
+        promotersPage: state.promotersPage + 1,
+      };
+    case 'DECREASE_PROMOTERS_PAGE':
+      return {
+        ...state,
+        promotersPage: state.promotersPage - 1,
       };
     default:
       return state;

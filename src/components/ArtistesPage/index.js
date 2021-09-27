@@ -1,7 +1,6 @@
 /* eslint-disable no-plusplus */
 // == Import
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 
 import LittleCard from 'src/components/LittleCard';
 
@@ -27,7 +26,6 @@ const ArtistesPage = () => {
     const offset = (page - 1) * perPage;
     const paginatedItems = items.slice(offset).slice(0, perPageItems);
     const totalPages = Math.ceil(items.length / perPage);
-
     return {
       page: page,
       perPage: perPage,
@@ -38,7 +36,6 @@ const ArtistesPage = () => {
       data: paginatedItems,
     };
   }
-
   const dispatch = useDispatch();
   const artistPage = useSelector((state) => state.artistPage);
   const handleNextPage = (event) => {
@@ -53,7 +50,6 @@ const ArtistesPage = () => {
       type: 'DECREASE_ARTIST_PAGE_NUMBER',
     });
   };
-
   const pagination = paginator(artists, artistPage, 6);
   const numberOfPages = pagination.totalPages;
   const artistsToDisplay = pagination.data;

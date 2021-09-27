@@ -45,6 +45,26 @@ const APIMiddleware = (store) => (next) => (action) => {
       type: 'DECREASE_ARTIST_PAGE',
     });
   }
+  else if (action.type === 'INCREASE_EVENTS_PAGE_NUMBER') {
+    store.dispatch({
+      type: 'INCREASE_EVENTS_PAGE',
+    });
+  }
+  else if (action.type === 'DECREASE_EVENTS_PAGE_NUMBER') {
+    store.dispatch({
+      type: 'DECREASE_EVENTS_PAGE',
+    });
+  }
+  else if (action.type === 'INCREASE_PROMOTERS_PAGE_NUMBER') {
+    store.dispatch({
+      type: 'INCREASE_PROMOTERS_PAGE',
+    });
+  }
+  else if (action.type === 'DECREASE_PROMOTERS_PAGE_NUMBER') {
+    store.dispatch({
+      type: 'DECREASE_PROMOTERS_PAGE',
+    });
+  }
   next(action);
 };
 

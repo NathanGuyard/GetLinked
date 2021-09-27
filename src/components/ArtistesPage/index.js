@@ -1,7 +1,6 @@
 /* eslint-disable no-plusplus */
 // == Import
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import LittleCard from 'src/components/LittleCard';
 
@@ -9,14 +8,6 @@ import './styles.scss';
 
 // == Composant
 const ArtistesPage = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch({
-      type: 'FETCH_ARTISTS',
-    });
-  }, []);
-
   const users = useSelector((state) => state.users);
   const artists = [];
   users.forEach((user) => {

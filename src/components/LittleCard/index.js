@@ -1,3 +1,4 @@
+/* eslint-disable prefer-template */
 /* eslint-disable react/require-default-props */
 // == Import
 import PropTypes from 'prop-types';
@@ -6,7 +7,7 @@ import { Link } from 'react-router-dom';
 import banner4 from './images/banner4.jpeg';
 import banner3 from './images/banner3.jpeg';
 import banner2 from './images/banner2.jpeg';
-import guillaume from './images/guillaume.jpg';
+// import guillaume from './images/guillaume.jpg';
 import etoile from './images/etoile.png';
 import etoileTwo from './images/etoile2.png';
 import pin from './images/pin2.png';
@@ -17,13 +18,13 @@ import './styles.scss';
 // == Composant
 const LittleCard = ({
   name,
-  firstname,
-  lastname,
+  // firstname,
+  // lastname,
   picture,
-  description,
-  nb_members,
+  // description,
+  // nb_members,
   address,
-  email,
+  // email,
   slug,
   type,
 }) => (
@@ -56,13 +57,13 @@ const LittleCard = ({
 
 LittleCard.propTypes = {
   name: PropTypes.string.isRequired,
-  firstname: PropTypes.string.isRequired,
-  lastname: PropTypes.string.isRequired,
+  // firstname: PropTypes.string.isRequired,
+  // lastname: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  nb_members: PropTypes.number,
+  // description: PropTypes.string.isRequired,
+  // nb_members: PropTypes.number,
   address: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
+  // email: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
 };

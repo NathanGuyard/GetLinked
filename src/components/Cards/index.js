@@ -1,3 +1,4 @@
+/* eslint-disable prefer-template */
 // == Import
 
 import { Link } from 'react-router-dom';
@@ -28,7 +29,7 @@ const Cards = ({
   slug,
   type,
 }) => (
-  <Link to={`artistes/${slug}`}>
+  <Link to={`${type + 's'}/${slug}`}>
     <div className="card">
       {type === 'artiste' && <img src={banner4} alt="" className="card__banner" />}
       {type === 'organisateur' && <img src={banner} alt="" className="card__banner" />}
@@ -60,13 +61,13 @@ const Cards = ({
 
 Cards.propTypes = {
   name: PropTypes.string.isRequired,
-  firstname: PropTypes.string.isRequired,
-  lastname: PropTypes.string.isRequired,
+  // firstname: PropTypes.string.isRequired,
+  // lastname: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  nb_members: PropTypes.number,
+  // nb_members: PropTypes.number,
   address: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
+  // email: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
 };

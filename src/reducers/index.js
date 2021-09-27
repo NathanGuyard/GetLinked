@@ -1,6 +1,7 @@
 const initialState = {
   menuOpened: false,
   users: [],
+  events: [],
   loading: true,
 };
 
@@ -16,12 +17,17 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         menuOpened: false,
-        // loading: false,
       };
     case 'LOAD_USERS':
       return {
         ...state,
         users: action.users,
+        // loading: false,
+      };
+    case 'LOAD_EVENTS':
+      return {
+        ...state,
+        events: action.events,
         loading: false,
       };
     default:

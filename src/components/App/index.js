@@ -20,6 +20,7 @@ import EditProfile from 'src/components/EditProfile';
 import Faq from 'src/components/Faq';
 
 import UserDetail from 'src/components/UserDetail';
+import EventDetail from 'src/components/EventDetail';
 
 import Loading from 'src/components/Loading';
 
@@ -32,6 +33,9 @@ const App = () => {
   useEffect(() => {
     dispatch({
       type: 'FETCH_ARTISTS',
+    });
+    dispatch({
+      type: 'FETCH_EVENTS',
     });
   }, []);
 
@@ -74,6 +78,11 @@ const App = () => {
         <Route exact path="/evenements">
           <Header />
           <EventsPage />
+          <Footer />
+        </Route>
+        <Route exact path="/events/:slug">
+          <Header />
+          <EventDetail />
           <Footer />
         </Route>
         <Route exact path="/organisateurs">

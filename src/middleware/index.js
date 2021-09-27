@@ -35,6 +35,16 @@ const APIMiddleware = (store) => (next) => (action) => {
         });
       });
   }
+  else if (action.type === 'INCREASE_ARTIST_PAGE_NUMBER') {
+    store.dispatch({
+      type: 'INCREASE_ARTIST_PAGE',
+    });
+  }
+  else if (action.type === 'DECREASE_ARTIST_PAGE_NUMBER') {
+    store.dispatch({
+      type: 'DECREASE_ARTIST_PAGE',
+    });
+  }
   next(action);
 };
 

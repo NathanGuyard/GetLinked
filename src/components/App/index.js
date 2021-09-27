@@ -31,11 +31,14 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // dispatch({
+    //   type: 'FETCH_ARTISTS',
+    // });
+    // dispatch({
+    //   type: 'FETCH_EVENTS',
+    // });
     dispatch({
-      type: 'FETCH_ARTISTS',
-    });
-    dispatch({
-      type: 'FETCH_EVENTS',
+      type: 'FETCH_HOME',
     });
   }, []);
 

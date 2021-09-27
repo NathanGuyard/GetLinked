@@ -30,6 +30,13 @@ const reducer = (state = initialState, action = {}) => {
         events: action.events,
         loading: false,
       };
+    case 'LOAD_HOME_DATA':
+      return {
+        ...state,
+        events: action.events,
+        users: action.users,
+        loading: false,
+      };
     default:
       return state;
   }

@@ -3,6 +3,7 @@ const initialState = {
   users: [],
   events: [],
   loading: true,
+  artistPage: 1,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -36,6 +37,16 @@ const reducer = (state = initialState, action = {}) => {
         events: action.events,
         users: action.users,
         loading: false,
+      };
+    case 'INCREASE_ARTIST_PAGE':
+      return {
+        ...state,
+        artistPage: state.artistPage + 1,
+      };
+    case 'DECREASE_ARTIST_PAGE':
+      return {
+        ...state,
+        artistPage: state.artistPage - 1,
       };
     default:
       return state;

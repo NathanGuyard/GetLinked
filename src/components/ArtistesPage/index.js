@@ -1,6 +1,7 @@
 /* eslint-disable no-plusplus */
 // == Import
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 import LittleCard from 'src/components/LittleCard';
 
@@ -15,12 +16,47 @@ const ArtistesPage = () => {
       artists.push(user);
     }
   });
-
   const betterRatedArtists = [];
   for (let index = 0; index < 3; index++) {
     betterRatedArtists.push(artists[index]);
   }
-  // console.log(betterRatedArtists)
+
+  function paginator(items, currentPage, perPageItems) {
+    const page = currentPage || 1;
+    const perPage = perPageItems || 10;
+    const offset = (page - 1) * perPage;
+    const paginatedItems = items.slice(offset).slice(0, perPageItems);
+    const totalPages = Math.ceil(items.length / perPage);
+
+    return {
+      page: page,
+      perPage: perPage,
+      pre_page: page - 1 ? page - 1 : null,
+      next_page: (totalPages > page) ? page + 1 : null,
+      total: items.length,
+      totalPages: totalPages,
+      data: paginatedItems,
+    };
+  }
+
+  const dispatch = useDispatch();
+  const artistPage = useSelector((state) => state.artistPage);
+  const handleNextPage = (event) => {
+    event.preventDefault();
+    dispatch({
+      type: 'INCREASE_ARTIST_PAGE_NUMBER',
+    });
+  };
+  const handlePrevPage = (event) => {
+    event.preventDefault();
+    dispatch({
+      type: 'DECREASE_ARTIST_PAGE_NUMBER',
+    });
+  };
+
+  const pagination = paginator(artists, artistPage, 6);
+  const numberOfPages = pagination.totalPages;
+  const artistsToDisplay = pagination.data;
 
   return (
     <div className="artistes-page">
@@ -48,14 +84,14 @@ const ArtistesPage = () => {
       </form>
       <div className="artistes-page__list">
         <div className="artistes-page__list__container">
-          {artists.map((artist) => (
+          {artistsToDisplay.map((artist) => (
             <LittleCard key={artist.id} {...artist} />
           ))}
         </div>
         <div className="artistes-page__list__nav">
-          <a href="#">prev</a>
-          <p>1/25</p>
-          <a href="#">next</a>
+          {artistPage > 1 && <a href="#" onClick={handlePrevPage}>prev</a>}
+          <p>{artistPage}/{numberOfPages}</p>
+          {numberOfPages > artistPage && <a href="#" onClick={handleNextPage}>next</a>}
         </div>
       </div>
     </div>

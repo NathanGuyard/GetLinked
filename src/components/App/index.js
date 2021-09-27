@@ -18,6 +18,7 @@ import Profile from 'src/components/Profile';
 import Register from 'src/components/Register';
 import EditProfile from 'src/components/EditProfile';
 import Faq from 'src/components/Faq';
+import CreateEvent from 'src/components/CreateEvent';
 
 import UserDetail from 'src/components/UserDetail';
 import EventDetail from 'src/components/EventDetail';
@@ -87,6 +88,11 @@ const App = () => {
           <Header />
           <EventDetail />
           <Footer />
+        </Route>
+        <Route exact path="/evenement/nouveau">
+          <Header />
+          <CreateEvent />
+          {/* <Footer /> */}
         </Route>
         <Route exact path="/organisateurs">
           <Header />

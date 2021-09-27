@@ -85,6 +85,7 @@ $profil-picture-width: 350px;
     &__profile {
       top: -125px;
       width: 250px;
+      height: 250px;
       left: calc(50% - calc(250px / 2));
     }
   }
@@ -101,6 +102,7 @@ $profil-picture-width: 350px;
     &__profile {
       top: -75px;
       width: 150px;
+      height: 150px;
       left: calc(50% - calc(150px / 2));
     }
   }

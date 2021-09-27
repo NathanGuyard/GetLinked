@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const APIMiddleware = (store) => (next) => (action) => {
   if (action.type === 'FETCH_ARTISTS') {
-    axios.get('http://localhost:3001/api/v1/users/')
+    axios.get('http://ec2-54-209-203-9.compute-1.amazonaws.com/api/v1/users/')
       .then((response) => {
         const users = response.data;
         store.dispatch({
@@ -12,8 +12,8 @@ const APIMiddleware = (store) => (next) => (action) => {
       });
   }
   else if (action.type === 'FETCH_HOME') {
-    const artistsList = axios.get('http://localhost:3001/api/v1/users/');
-    const eventsList = axios.get('http://localhost:3001/api/v1/events/');
+    const artistsList = axios.get('http://ec2-54-209-203-9.compute-1.amazonaws.com/api/v1/users/');
+    const eventsList = axios.get('http://ec2-54-209-203-9.compute-1.amazonaws.com/api/v1/events/');
     Promise.all([artistsList, eventsList])
       .then((responses) => {
         const artistList = responses[0].data;
@@ -27,7 +27,7 @@ const APIMiddleware = (store) => (next) => (action) => {
       });
   }
   else if (action.type === 'FETCH_EVENTS') {
-    axios.get('http://localhost:3001/api/v1/events/')
+    axios.get('http://ec2-54-209-203-9.compute-1.amazonaws.com/api/v1/events/')
       .then((response) => {
         store.dispatch({
           type: 'LOAD_EVENTS',

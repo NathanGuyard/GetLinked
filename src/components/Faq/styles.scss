@@ -1,0 +1,31 @@
+.faq {
+  width: 100%;
+  height: fit-content;
+
+  &__title {
+    text-align: center;
+    padding: 1.5rem;
+    background: #ca0e43;
+    color: white;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 1rem 0;
+  }
+
+  &__questions {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    &__question {
+      font-size: 1.5rem;
+      padding: 0.6rem;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      border-radius: 5px;
+      background: #424242;
+      color: white;
+    }
+  }
+}

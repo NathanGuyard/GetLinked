@@ -2,6 +2,7 @@
 // == Import
 
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import LittleCard from 'src/components/LittleCard';
 
@@ -59,6 +60,11 @@ const EventsPage = () => {
             <LittleCard key={artist.id} {...artist} type="event" />
           ))}
         </div>
+      </div>
+      <div className="events-page__button-container">
+        <Link to="/evenement/nouveau">
+          <button type="button" className="events-page__button-container__submit">Créer un événement</button>
+        </Link>
       </div>
       <form method="get" className="events-page__from">
         <h1 className="events-page__from__title">Affiner votre recherche</h1>

@@ -35,6 +35,20 @@ const APIMiddleware = (store) => (next) => (action) => {
         });
       });
   }
+  else if (action.type === 'LOGIN') {
+    const state = store.getState();
+    console.log(state.createEvent);
+    axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/events/', {
+      location: state.createEvent.address,
+      date: state.createEvent.date,
+      description: state.createEvent.description,
+      duration: state.createEvent.duration,
+      email: state.createEvent.email,
+      name: state.createEvent.name,
+      picture: state.createEvent.picture,
+      price: state.createEvent.price,
+    });
+  }
   else if (action.type === 'INCREASE_ARTIST_PAGE_NUMBER') {
     store.dispatch({
       type: 'INCREASE_ARTIST_PAGE',

@@ -6,6 +6,16 @@ const initialState = {
   artistPage: 1,
   eventsPage: 1,
   promotersPage: 1,
+  createEvent: {
+    name: '',
+    email: '',
+    description: '',
+    date: '',
+    address: '',
+    price: '',
+    duration: '',
+    picture: '',
+  },
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -70,6 +80,16 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         promotersPage: state.promotersPage - 1,
       };
+
+    case 'CHANGE_VALUE':
+      return {
+        ...state,
+        createEvent: {
+          ...state.createEvent,
+          [action.key]: action.value,
+        },
+      };
+
     default:
       return state;
   }

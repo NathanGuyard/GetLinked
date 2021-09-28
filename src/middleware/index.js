@@ -39,7 +39,7 @@ const APIMiddleware = (store) => (next) => (action) => {
     const state = store.getState();
     console.log(state.createEvent);
     axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/events/', {
-      location: state.createEvent.address,
+      address: state.createEvent.address,
       date: state.createEvent.date,
       description: state.createEvent.description,
       duration: state.createEvent.duration,
@@ -47,6 +47,8 @@ const APIMiddleware = (store) => (next) => (action) => {
       name: state.createEvent.name,
       picture: state.createEvent.picture,
       price: state.createEvent.price,
+      slug: state.createEvent.slug,
+      user: 1,
     });
   }
   else if (action.type === 'INCREASE_ARTIST_PAGE_NUMBER') {

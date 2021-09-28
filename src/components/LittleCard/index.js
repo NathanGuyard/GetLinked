@@ -64,7 +64,7 @@ LittleCard.propTypes = {
   // nb_members: PropTypes.number,
   address: PropTypes.string.isRequired,
   // email: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
+  // slug: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
 };
 

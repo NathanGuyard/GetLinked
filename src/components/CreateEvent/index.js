@@ -3,6 +3,7 @@ import './styles.scss';
 
 const CreateEvent = () => {
   const dispatch = useDispatch();
+  // const name = useSelector((state) => state.createEvent.name);
   const changeField = (value, key) => {
     dispatch({
       type: 'CHANGE_VALUE',
@@ -18,8 +19,12 @@ const CreateEvent = () => {
     });
   };
 
+  // const nameToSlug = name;
+  // slug = nameToSlug.replace(/\s+/g, '-').toLowerCase();
+
   const handleNameChange = (evt) => {
     changeField(evt.target.value, 'name');
+    changeField((evt.target.value).replace(/\s+/g, '-').toLowerCase(), 'slug');
   };
   const handleEmailChange = (evt) => {
     changeField(evt.target.value, 'email');
@@ -68,11 +73,11 @@ const CreateEvent = () => {
         </div>
         <div className="eventCreation__form__element">
           <label htmlFor="price">Rémunération (si rémunération) :</label>
-          <input type="text" name="price" id="price" className="eventCreation__form__element__input" onChange={handlePriceChange} />
+          <input type="number" min={0} name="price" id="price" className="eventCreation__form__element__input" onChange={handlePriceChange} />
         </div>
         <div className="eventCreation__form__element">
           <label htmlFor="duration">Durée :</label>
-          <input type="text" name="duration" id="duration" className="eventCreation__form__element__input" onChange={handleDurationChange} />
+          <input type="time" name="duration" id="duration" className="eventCreation__form__element__input" onChange={handleDurationChange} />
         </div>
         <div className="eventCreation__form__element">
           <label htmlFor="picture">Photo de l'événement / lieu :</label>

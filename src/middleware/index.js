@@ -14,15 +14,18 @@ const APIMiddleware = (store) => (next) => (action) => {
   else if (action.type === 'FETCH_HOME') {
     const artistsList = axios.get('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/users/');
     const eventsList = axios.get('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/events/');
-    Promise.all([artistsList, eventsList])
+    const stylesList = axios.get('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/styles/');
+    Promise.all([artistsList, eventsList, stylesList])
       .then((responses) => {
         const artistList = responses[0].data;
         const eventList = responses[1].data;
+        const styleList = responses[2].data;
 
         store.dispatch({
           type: 'LOAD_HOME_DATA',
           events: eventList,
           users: artistList,
+          styles: styleList,
         });
       });
   }

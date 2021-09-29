@@ -2,6 +2,7 @@ const initialState = {
   menuOpened: false,
   users: [],
   events: [],
+  styles: [],
   loading: true,
   artistPage: 1,
   eventsPage: 1,
@@ -16,6 +17,21 @@ const initialState = {
     duration: '',
     picture: '',
     slug: '',
+  },
+  artistesPageFilters: {
+    search: '',
+    style: '',
+    location: '',
+  },
+  eventsPageFilters: {
+    search: '',
+    style: '',
+    location: '',
+  },
+  promotersPageFilters: {
+    search: '',
+    style: '',
+    location: '',
   },
 };
 
@@ -49,6 +65,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         events: action.events,
         users: action.users,
+        styles: action.styles,
         loading: false,
       };
     case 'INCREASE_ARTIST_PAGE':
@@ -87,6 +104,33 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         createEvent: {
           ...state.createEvent,
+          [action.key]: action.value,
+        },
+      };
+
+    case 'CHANGE_FILTER':
+      return {
+        ...state,
+        artistesPageFilters: {
+          ...state.artistesPageFilters,
+          [action.key]: action.value,
+        },
+      };
+
+    case 'CHANGE_FILTER_EVENTS':
+      return {
+        ...state,
+        eventsPageFilters: {
+          ...state.eventsPageFilters,
+          [action.key]: action.value,
+        },
+      };
+
+    case 'CHANGE_FILTER_PROMOTERS':
+      return {
+        ...state,
+        promotersPageFilters: {
+          ...state.promotersPageFilters,
           [action.key]: action.value,
         },
       };

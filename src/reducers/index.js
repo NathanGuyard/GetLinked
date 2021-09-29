@@ -23,6 +23,11 @@ const initialState = {
     style: '',
     location: '',
   },
+  eventsPageFilters: {
+    search: '',
+    style: '',
+    location: '',
+  },
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -103,6 +108,15 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         artistesPageFilters: {
           ...state.artistesPageFilters,
+          [action.key]: action.value,
+        },
+      };
+
+    case 'CHANGE_FILTER_EVENTS':
+      return {
+        ...state,
+        eventsPageFilters: {
+          ...state.eventsPageFilters,
           [action.key]: action.value,
         },
       };

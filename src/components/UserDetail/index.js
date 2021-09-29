@@ -21,15 +21,6 @@ const UserDetail = () => {
 
   const { slug } = useParams();
   const user = useSelector((state) => findUser(state.users, slug));
-  console.log('user :' + user);
-  // const event = useSelector((state) => findUser(state.events, slug));
-  // console.log('event :' + event);
-
-  // if (user === undefined) {
-  //   return (
-  //     <EventsDetailComp userDetail={event} />
-  //   );
-  // }
 
   if (user.type === 'artiste') {
     return (

@@ -11,7 +11,6 @@ const ArtistesPage = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
   const styles = useSelector((state) => state.styles);
-  // console.log(styles);
 
   const artists = [];
   users.forEach((user) => {

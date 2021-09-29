@@ -40,7 +40,6 @@ const APIMiddleware = (store) => (next) => (action) => {
   }
   else if (action.type === 'NEW_EVENTS') {
     const state = store.getState();
-    // console.log(state.createEvent);
     axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/events/', {
       address: state.createEvent.address,
       date: state.createEvent.date,
@@ -56,7 +55,6 @@ const APIMiddleware = (store) => (next) => (action) => {
   }
   else if (action.type === 'NEW_USER') {
     const state = store.getState();
-    // console.log(state.createEvent);
     axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/users/', {
       type: state.createProfil.type,
       name: state.createProfil.name,

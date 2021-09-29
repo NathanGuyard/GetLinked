@@ -2,6 +2,7 @@ const initialState = {
   menuOpened: false,
   users: [],
   events: [],
+  styles: [],
   loading: true,
   artistPage: 1,
   eventsPage: 1,
@@ -21,7 +22,6 @@ const initialState = {
     search: '',
     style: '',
     location: '',
-    number: 0,
   },
 };
 
@@ -55,6 +55,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         events: action.events,
         users: action.users,
+        styles: action.styles,
         loading: false,
       };
     case 'INCREASE_ARTIST_PAGE':

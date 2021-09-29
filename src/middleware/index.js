@@ -38,9 +38,9 @@ const APIMiddleware = (store) => (next) => (action) => {
         });
       });
   }
-  else if (action.type === 'LOGIN') {
+  else if (action.type === 'NEW_EVENTS') {
     const state = store.getState();
-    console.log(state.createEvent);
+    // console.log(state.createEvent);
     axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/events/', {
       address: state.createEvent.address,
       date: state.createEvent.date,
@@ -52,6 +52,27 @@ const APIMiddleware = (store) => (next) => (action) => {
       price: state.createEvent.price,
       slug: state.createEvent.slug,
       user: 1,
+    });
+  }
+  else if (action.type === 'NEW_USER') {
+    const state = store.getState();
+    // console.log(state.createEvent);
+    axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/users/', {
+      type: state.createProfil.type,
+      name: state.createProfil.name,
+      firstname: state.createProfil.firstname,
+      lastname: state.createProfil.lastname,
+      email: state.createProfil.email,
+      // password: '',
+      description: state.createProfil.description,
+      nb_members: state.createProfil.nb_members,
+      address: state.createProfil.address,
+      website: state.createProfil.website,
+      facebook: state.createProfil.facebook,
+      instagram: state.createProfil.instagram,
+      twitter: state.createProfil.twitter,
+      picture: state.createProfil.picture,
+      slug: state.createProfil.slug,
     });
   }
   else if (action.type === 'INCREASE_ARTIST_PAGE_NUMBER') {

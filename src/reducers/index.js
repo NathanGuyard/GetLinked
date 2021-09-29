@@ -18,6 +18,23 @@ const initialState = {
     picture: '',
     slug: '',
   },
+  createProfil: {
+    type: '',
+    name: '',
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    description: '',
+    nb_members: null,
+    address: '',
+    website: '',
+    facebook: '',
+    instagram: '',
+    twitter: '',
+    picture: '',
+    slug: '',
+  },
   artistesPageFilters: {
     search: '',
     style: '',
@@ -104,6 +121,15 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         createEvent: {
           ...state.createEvent,
+          [action.key]: action.value,
+        },
+      };
+
+    case 'CHANGE_VALUE_NEW_USER':
+      return {
+        ...state,
+        createProfil: {
+          ...state.createProfil,
           [action.key]: action.value,
         },
       };

@@ -16,12 +16,9 @@ const CreateEvent = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch({
-      type: 'LOGIN',
+      type: 'NEW_EVENTS',
     });
   };
-
-  // const nameToSlug = name;
-  // slug = nameToSlug.replace(/\s+/g, '-').toLowerCase();
 
   const handleNameChange = (evt) => {
     changeField(evt.target.value, 'name');

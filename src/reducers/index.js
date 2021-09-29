@@ -1,5 +1,6 @@
 const initialState = {
   menuOpened: false,
+  logged: true,
   users: [],
   events: [],
   styles: [],
@@ -159,6 +160,12 @@ const reducer = (state = initialState, action = {}) => {
           ...state.promotersPageFilters,
           [action.key]: action.value,
         },
+      };
+
+    case 'LOGOUT':
+      return {
+        ...state,
+        logged: false,
       };
 
     default:

@@ -28,6 +28,11 @@ const initialState = {
     style: '',
     location: '',
   },
+  promotersPageFilters: {
+    search: '',
+    style: '',
+    location: '',
+  },
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -117,6 +122,15 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         eventsPageFilters: {
           ...state.eventsPageFilters,
+          [action.key]: action.value,
+        },
+      };
+
+    case 'CHANGE_FILTER_PROMOTERS':
+      return {
+        ...state,
+        promotersPageFilters: {
+          ...state.promotersPageFilters,
           [action.key]: action.value,
         },
       };

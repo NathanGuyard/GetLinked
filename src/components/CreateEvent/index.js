@@ -7,7 +7,7 @@ const CreateEvent = () => {
   // const name = useSelector((state) => state.createEvent.name);
   const changeField = (value, key) => {
     dispatch({
-      type: 'CHANGE_VALUE',
+      type: 'SAVE_USER_INFO',
       value: value,
       key: key,
     });

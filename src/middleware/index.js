@@ -73,6 +73,23 @@ const APIMiddleware = (store) => (next) => (action) => {
       slug: state.createProfil.slug,
     });
   }
+  else if (action.type === 'LOGIN') {
+    const state = store.getState();
+    axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/login/', {
+      email: state.connectedUser.email,
+      password: state.connectedUser.password,
+    })
+      .then((response) => {
+        'http://ec2-107-23-250-100.compute-1.amazonaws.com/'.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
+        store.dispatch({
+          type: 'SAVE_USER',
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        alert('Authentification échouée');
+      });
+  }
   else if (action.type === 'INCREASE_ARTIST_PAGE_NUMBER') {
     store.dispatch({
       type: 'INCREASE_ARTIST_PAGE',

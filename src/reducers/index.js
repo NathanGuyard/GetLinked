@@ -1,6 +1,6 @@
 const initialState = {
   menuOpened: false,
-  logged: true,
+  logged: false,
   users: [],
   events: [],
   styles: [],
@@ -50,6 +50,10 @@ const initialState = {
     search: '',
     style: '',
     location: '',
+  },
+  connectedUser: {
+    email: '',
+    password: '',
   },
 };
 
@@ -142,6 +146,21 @@ const reducer = (state = initialState, action = {}) => {
           ...state.artistesPageFilters,
           [action.key]: action.value,
         },
+      };
+
+    case 'SAVE_USER_INFO':
+      return {
+        ...state,
+        connectedUser: {
+          ...state.connectedUser,
+          [action.key]: action.value,
+        },
+      };
+
+    case 'SAVE_USER':
+      return {
+        ...state,
+        logged: true,
       };
 
     case 'CHANGE_FILTER_EVENTS':

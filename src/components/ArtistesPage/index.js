@@ -8,6 +8,7 @@ import './styles.scss';
 
 // == Composant
 const ArtistesPage = () => {
+  const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
   const artists = [];
   users.forEach((user) => {
@@ -19,6 +20,24 @@ const ArtistesPage = () => {
   for (let index = 0; index < 3; index++) {
     betterRatedArtists.push(artists[index]);
   }
+
+  const changeField = (value, key) => {
+    dispatch({
+      type: 'CHANGE_FILTER',
+      value: value,
+      key: key,
+    });
+  };
+  const handleSearchBar = (evt) => {
+    changeField(evt.target.value.toLowerCase(), 'search');
+  };
+  const searchBarValue = useSelector((state) => state.artistesPageFilters.search);
+  const newValue = [];
+  artists.forEach((user) => {
+    if (user.name.toLowerCase().includes(searchBarValue)) {
+      newValue.push(user);
+    }
+  });
 
   function paginator(items, currentPage, perPageItems) {
     const page = currentPage || 1;
@@ -36,7 +55,6 @@ const ArtistesPage = () => {
       data: paginatedItems,
     };
   }
-  const dispatch = useDispatch();
   const artistPage = useSelector((state) => state.artistPage);
   const handleNextPage = (event) => {
     event.preventDefault();
@@ -50,7 +68,7 @@ const ArtistesPage = () => {
       type: 'DECREASE_ARTIST_PAGE_NUMBER',
     });
   };
-  const pagination = paginator(artists, artistPage, 6);
+  const pagination = paginator(newValue, artistPage, 6);
   const numberOfPages = pagination.totalPages;
   const artistsToDisplay = pagination.data;
 
@@ -66,7 +84,7 @@ const ArtistesPage = () => {
       </div>
       <form method="get" className="artistes-page__from">
         <h1 className="artistes-page__from__title">Affiner votre recherche</h1>
-        <input type="text" name="artistesPageSearch" id="artistesPageSearch" placeholder="Rechercher" className="artistes-page__from__input--search" />
+        <input type="text" name="artistesPageSearch" id="artistesPageSearch" placeholder="Rechercher" className="artistes-page__from__input--search" onChange={handleSearchBar} />
         <div className="artistes-page__from__bottom">
           <select name="artistesPageSelectStyle" id="artistesPageSelectStyle" className="artistes-page__from__input">
             <option value="rock">Rock</option>

@@ -1,4 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import { useDispatch } from 'react-redux';
 import './styles.scss';
 
 const CreateEvent = () => {

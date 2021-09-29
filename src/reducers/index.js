@@ -17,6 +17,12 @@ const initialState = {
     picture: '',
     slug: '',
   },
+  artistesPageFilters: {
+    search: '',
+    style: '',
+    location: '',
+    number: 0,
+  },
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -87,6 +93,15 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         createEvent: {
           ...state.createEvent,
+          [action.key]: action.value,
+        },
+      };
+
+    case 'CHANGE_FILTER':
+      return {
+        ...state,
+        artistesPageFilters: {
+          ...state.artistesPageFilters,
           [action.key]: action.value,
         },
       };

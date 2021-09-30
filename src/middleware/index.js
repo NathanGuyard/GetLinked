@@ -61,7 +61,7 @@ const APIMiddleware = (store) => (next) => (action) => {
       firstname: state.createProfil.firstname,
       lastname: state.createProfil.lastname,
       email: state.createProfil.email,
-      // password: '',
+      password: state.createProfil.password,
       description: state.createProfil.description,
       nb_members: state.createProfil.nb_members,
       address: state.createProfil.address,
@@ -76,7 +76,7 @@ const APIMiddleware = (store) => (next) => (action) => {
   else if (action.type === 'LOGIN') {
     const state = store.getState();
     axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/login/', {
-      email: state.connectedUser.email,
+      username: state.connectedUser.email,
       password: state.connectedUser.password,
     })
       .then((response) => {

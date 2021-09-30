@@ -1,6 +1,6 @@
 const initialState = {
   menuOpened: false,
-  logged: false,
+  logged: true,
   users: [],
   events: [],
   styles: [],

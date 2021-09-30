@@ -1,3 +1,5 @@
+/* eslint-disable arrow-body-style */
+/* eslint-disable no-use-before-define */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useDispatch, useSelector } from 'react-redux';
 import './styles.scss';
@@ -5,6 +7,7 @@ import './styles.scss';
 const Register = () => {
   const dispatch = useDispatch();
   const userType = useSelector((state) => state.createProfil.type);
+  const pictureTest = useSelector((state) => state.createProfil.picture);
 
   const changeField = (value, key) => {
     dispatch({
@@ -61,9 +64,36 @@ const Register = () => {
   const handleInstagramChange = (evt) => {
     changeField(evt.target.value, 'instagram');
   };
-  const handlePictureChange = (evt) => {
-    changeField(evt.target.value, 'picture');
+  // const handlePictureChange = (evt) => {
+  //   changeField(URL.createObjectURL(evt.target.files[0]), 'picture');
+  // };
+
+  // console.log(pictureTest);
+
+  //! Test 2 (Fonctionnel) :
+
+  const uploadImage = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    changeField(base64, 'picture');
   };
+
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
+  console.log(pictureTest);
 
   return (
     <div className="register">
@@ -130,7 +160,8 @@ const Register = () => {
         </div>
         <div className="register__form__element">
           <label htmlFor="picture">Photo de profil :</label>
-          <input type="file" name="picture" id="picture" className="register__form__element__input register__form__element__input--picture" onChange={handlePictureChange} />
+          <input type="file" name="picture" id="picture" className="register__form__element__input register__form__element__input--picture" onChange={uploadImage} />
+          <img src={pictureTest} alt="" />
         </div>
         <button type="submit" className="register__form__submit">Créer mon compte</button>
       </form>

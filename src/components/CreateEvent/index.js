@@ -1,13 +1,16 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable arrow-body-style */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './styles.scss';
 
 const CreateEvent = () => {
   const dispatch = useDispatch();
   // const name = useSelector((state) => state.createEvent.name);
+  const pictureTest = useSelector((state) => state.createEvent.picture);
   const changeField = (value, key) => {
     dispatch({
-      type: 'SAVE_USER_INFO',
+      type: 'CHANGE_VALUE',
       value: value,
       key: key,
     });
@@ -42,9 +45,33 @@ const CreateEvent = () => {
   const handleDurationChange = (evt) => {
     changeField(evt.target.value, 'duration');
   };
-  const handlePictureChange = (evt) => {
-    changeField(evt.target.value, 'picture');
+  // const handlePictureChange = (evt) => {
+  //   changeField(evt.target.value, 'picture');
+  // };
+
+  const uploadImage = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    changeField(base64, 'picture');
   };
+
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
+  // console.log(pictureTest);
+
   return (
     <div className="eventCreation">
       <h1 className="eventCreation__title">Créer un événement :</h1>
@@ -79,7 +106,8 @@ const CreateEvent = () => {
         </div>
         <div className="eventCreation__form__element">
           <label htmlFor="picture">Photo de l'événement / lieu :</label>
-          <input type="file" name="picture" id="picture" className="eventCreation__form__element__input eventCreation__form__element__input--picture" onChange={handlePictureChange} />
+          <input type="file" name="picture" id="picture" className="eventCreation__form__element__input eventCreation__form__element__input--picture" onChange={uploadImage} />
+          <img src={pictureTest} alt="" />
         </div>
         <button type="submit" className="eventCreation__form__submit">Créer un événement</button>
       </form>

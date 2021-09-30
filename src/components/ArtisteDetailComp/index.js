@@ -1,8 +1,10 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable max-len */
 import './styles.scss';
 
 import { Carousel } from 'react-carousel-minimal';
+import emailjs from 'emailjs-com';
 
 import banner from './images/banner.jpg';
 import banner4 from './images/banner4.jpeg';
@@ -30,9 +32,32 @@ const ArtisteDetailComp = ({ userDetail }) => {
     },
   ];
 
+  console.log(userDetail);
+
   const captionStyle = {
     fontSize: '2em',
     fontWeight: 'bold',
+  };
+
+  const sendEmail = (event) => {
+    event.preventDefault();
+
+    console.log(event.target);
+
+    // const objtest = {
+    //   name: 'nom',
+    //   user_email: 'email@utilisateur.fr',
+    //   message: 'message',
+    //   email_to_contact: 'email@contacter.fr',
+    // };
+
+    emailjs.sendForm('service_6kkxt0a', 'template_t5j8cbo', event.target, 'user_b9zjRs2ebKBBWwU22hWMN')
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -58,6 +83,21 @@ const ArtisteDetailComp = ({ userDetail }) => {
           <li className="detail-container__main__infos__element">Localisation : {userDetail.address}</li>
           <li className="detail-container__main__infos__element">Email : {userDetail.email}</li>
         </ul>
+        <form className="detail-container__main__form" onSubmit={sendEmail}>
+          {/* <label htmlFor="name">Nom :</label> */}
+          <input type="hidden" name="name" value={userDetail.email} />
+          <div className="detail-container__main__form__container">
+            <div className="detail-container__main__form__container__name">
+              <label htmlFor="email">Email :</label>
+              <input type="email" name="user_email" />
+            </div>
+            <div className="detail-container__main__form__container__name">
+              <label htmlFor="message">Message :</label>
+              <textarea name="message" rows="4" />
+            </div>
+          </div>
+          <input type="submit" value="Contacter" className="detail-container__main__form__button" />
+        </form>
         <div className="detail-container__main__medias">
           <h1 className="detail-container__main__medias__title">Photos de l'artiste :</h1>
           <Carousel

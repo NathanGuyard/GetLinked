@@ -75,15 +75,16 @@ const APIMiddleware = (store) => (next) => (action) => {
   }
   else if (action.type === 'LOGIN') {
     const state = store.getState();
-    axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/login/', {
+    axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/login_check', {
       username: state.connectedUser.email,
       password: state.connectedUser.password,
     })
       .then((response) => {
-        'http://ec2-107-23-250-100.compute-1.amazonaws.com/'.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
-        store.dispatch({
-          type: 'SAVE_USER',
-        });
+        console.log(response);
+        // 'http://ec2-107-23-250-100.compute-1.amazonaws.com/'.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
+        // store.dispatch({
+        //   type: 'SAVE_USER',
+        // });
       })
       .catch((error) => {
         console.error(error);

@@ -172,6 +172,23 @@ const reducer = (state = initialState, action = {}) => {
         },
       };
 
+    case 'CLEAR_EVENTS_INPUTS':
+      return {
+        ...state,
+        createEvent: {
+          ...state.createEvent,
+          name: '',
+          email: '',
+          description: '',
+          date: '',
+          address: '',
+          price: '',
+          duration: '',
+          picture: '',
+          slug: '',
+        },
+      };
+
     case 'CHANGE_FILTER_PROMOTERS':
       return {
         ...state,

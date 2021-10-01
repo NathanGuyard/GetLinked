@@ -51,7 +51,11 @@ const APIMiddleware = (store) => (next) => (action) => {
       price: state.createEvent.price,
       slug: state.createEvent.slug,
       user: 1,
-    });
+    })
+      .then(() => {
+        window.scroll(0, 0);
+        window.location.reload();
+      });
   }
   else if (action.type === 'NEW_USER') {
     const state = store.getState();
@@ -71,7 +75,11 @@ const APIMiddleware = (store) => (next) => (action) => {
       twitter: state.createProfil.twitter,
       picture: state.createProfil.picture,
       slug: state.createProfil.slug,
-    });
+    })
+      .then(() => {
+        window.scroll(0, 0);
+        window.location.reload();
+      });
   }
   else if (action.type === 'LOGIN') {
     const state = store.getState();

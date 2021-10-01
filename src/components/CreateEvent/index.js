@@ -2,9 +2,6 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  Redirect,
-} from 'react-router-dom';
 import './styles.scss';
 
 const CreateEvent = () => {

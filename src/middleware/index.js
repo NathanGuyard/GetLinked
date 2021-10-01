@@ -86,6 +86,10 @@ const APIMiddleware = (store) => (next) => (action) => {
     axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/login_check', {
       username: state.connectedUser.email,
       password: state.connectedUser.password,
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
       .then((response) => {
         console.log(response);

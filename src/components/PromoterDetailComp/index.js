@@ -1,8 +1,12 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable max-len */
 import './styles.scss';
 
 import { Carousel } from 'react-carousel-minimal';
+import { useDispatch, useSelector } from 'react-redux';
+import emailjs from 'emailjs-com';
+
 import banner from './images/banner.jpg';
 import banner2 from './images/banner2.jpeg';
 import etoile from './images/etoile.png';
@@ -13,6 +17,10 @@ import third from './images/third.jpg';
 import fourth from './images/fourth.jpg';
 
 const PromoterDetailComp = ({ userDetail }) => {
+  const dispatch = useDispatch();
+  const successPopup = useSelector((state) => state.successPopup);
+  const errorPopup = useSelector((state) => state.errorPopup);
+
   const data = [
     {
       image: first,
@@ -32,8 +40,49 @@ const PromoterDetailComp = ({ userDetail }) => {
     fontSize: '2em',
     fontWeight: 'bold',
   };
+
+  const sendEmail = (event) => {
+    event.preventDefault();
+
+    emailjs.sendForm('service_6kkxt0a', 'template_t5j8cbo', event.target, 'user_b9zjRs2ebKBBWwU22hWMN')
+      .then(() => {
+        dispatch({
+          type: 'TOGGLE_SUCCESS_POPUP',
+        });
+      })
+      .catch(() => {
+        dispatch({
+          type: 'TOGGLE_ERROR_POPUP',
+        });
+      });
+  };
+
+  const handleCloseSuccessPopup = () => {
+    dispatch({
+      type: 'TOGGLE_SUCCESS_POPUP',
+    });
+  };
+
+  const handleCloseErrorPopup = () => {
+    dispatch({
+      type: 'TOGGLE_ERROR_POPUP',
+    });
+  };
+
   return (
     <div className="detail-container">
+      {successPopup && (
+        <div className="detail-container__popup">
+          <h1 className="detail-container__popup__title">Message envoyé avec succès !</h1>
+          <button type="button" className="detail-container__popup__button" onClick={handleCloseSuccessPopup}>Fermer</button>
+        </div>
+      )}
+      {errorPopup && (
+        <div className="detail-container__popup__error">
+          <h1 className="detail-container__popup__error__title">Erreur, message non envoyé</h1>
+          <button type="button" className="detail-container__popup__error__button" onClick={handleCloseErrorPopup}>Fermer</button>
+        </div>
+      )}
       <img src={banner2} alt="" className="detail-container__top" />
       <div className="detail-container__main">
         <img src={userDetail.picture} alt="" className="detail-container__main__profile" />
@@ -55,6 +104,20 @@ const PromoterDetailComp = ({ userDetail }) => {
           <li className="detail-container__main__infos__element">Localisation : {userDetail.address}</li>
           <li className="detail-container__main__infos__element">Email : {userDetail.email}</li>
         </ul>
+        <form className="detail-container__main__form" onSubmit={sendEmail}>
+          <input type="hidden" name="name" value={userDetail.email} />
+          <div className="detail-container__main__form__container">
+            <div className="detail-container__main__form__container__name">
+              <label htmlFor="email">Email :</label>
+              <input type="email" name="user_email" />
+            </div>
+            <div className="detail-container__main__form__container__name">
+              <label htmlFor="message">Message :</label>
+              <textarea name="message" rows="4" />
+            </div>
+          </div>
+          <input type="submit" value="Contacter" className="detail-container__main__form__button" />
+        </form>
         <div className="detail-container__main__medias">
           <h1 className="detail-container__main__medias__title">Photos de l'artiste :</h1>
           <Carousel

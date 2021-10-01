@@ -106,7 +106,6 @@ const ArtisteDetailComp = ({ userDetail }) => {
           <li className="detail-container__main__infos__element">Email : {userDetail.email}</li>
         </ul>
         <form className="detail-container__main__form" onSubmit={sendEmail}>
-          {/* <label htmlFor="name">Nom :</label> */}
           <input type="hidden" name="name" value={userDetail.email} />
           <div className="detail-container__main__form__container">
             <div className="detail-container__main__form__container__name">

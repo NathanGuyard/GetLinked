@@ -36,6 +36,7 @@ $profil-picture-width: 350px;
       border-radius: 5px;
       text-transform: uppercase;
       font-weight: 600;
+      cursor: pointer;
     }
 
     &__error {
@@ -72,6 +73,7 @@ $profil-picture-width: 350px;
         border-radius: 5px;
         text-transform: uppercase;
         font-weight: 600;
+        cursor: pointer;
       }
     }
   }
@@ -202,6 +204,7 @@ $profil-picture-width: 350px;
         color: white;
         border-radius: 5px;
         margin: 1rem 0;
+        cursor: pointer;
       }
     }
   }

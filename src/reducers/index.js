@@ -8,6 +8,8 @@ const initialState = {
   artistPage: 1,
   eventsPage: 1,
   promotersPage: 1,
+  successPopup: false,
+  errorPopup: false,
   createEvent: {
     name: '',
     email: '',
@@ -202,6 +204,18 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: false,
+      };
+
+    case 'TOGGLE_SUCCESS_POPUP':
+      return {
+        ...state,
+        successPopup: !state.successPopup,
+      };
+
+    case 'TOGGLE_ERROR_POPUP':
+      return {
+        ...state,
+        errorPopup: !state.errorPopup,
       };
 
     default:

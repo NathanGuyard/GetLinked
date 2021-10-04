@@ -93,8 +93,6 @@ const Register = () => {
     });
   };
 
-  console.log(pictureTest);
-
   return (
     <div className="register">
       <h1 className="register__title">Créer mon compte :</h1>

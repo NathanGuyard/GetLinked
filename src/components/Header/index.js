@@ -49,9 +49,16 @@ const Header = () => {
             <NavLink exact to="/profil" activeClassName="header__menu-opened__ul__li__active">
               <li className="header__menu-opened__ul__li">Profil</li>
             </NavLink>
-            <NavLink exact to="/connexion" activeClassName="header__menu-opened__ul__li__active">
-              <li className="header__menu-opened__ul__li">Connexion</li>
+            {logged && (
+            <NavLink exact to="/deconnexion" onClick={handleLogout}>
+              <li className="header__menu-opened__ul__li">Deconnexion</li>
             </NavLink>
+            )}
+            {!logged && (
+              <NavLink exact to="/connexion" activeClassName="header__menu-opened__ul__li__active">
+                <li className="header__menu-opened__ul__li">Connexion</li>
+              </NavLink>
+            )}
           </ul>
         </div>
       )}

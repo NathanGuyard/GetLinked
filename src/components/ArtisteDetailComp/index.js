@@ -152,7 +152,7 @@ const ArtisteDetailComp = ({ userDetail }) => {
 };
 
 ArtisteDetailComp.propTypes = {
-  userDetail: PropTypes.array.isRequired,
+  userDetail: PropTypes.object.isRequired,
 };
 
 export default ArtisteDetailComp;

@@ -146,7 +146,7 @@ const PromoterDetailComp = ({ userDetail }) => {
 };
 
 PromoterDetailComp.propTypes = {
-  userDetail: PropTypes.array.isRequired,
+  userDetail: PropTypes.object.isRequired,
 };
 
 export default PromoterDetailComp;

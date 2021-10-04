@@ -148,7 +148,7 @@ const EventsDetailComp = ({ userDetail }) => {
 };
 
 EventsDetailComp.propTypes = {
-  userDetail: PropTypes.array.isRequired,
+  userDetail: PropTypes.object.isRequired,
 };
 
 export default EventsDetailComp;

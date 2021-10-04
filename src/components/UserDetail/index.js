@@ -6,7 +6,6 @@ import './styles.scss';
 
 import ArtisteDetailComp from 'src/components/ArtisteDetailComp';
 import PromoterDetailComp from 'src/components/PromoterDetailComp';
-import EventsDetailComp from 'src/components/EventsDetailComp';
 
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';

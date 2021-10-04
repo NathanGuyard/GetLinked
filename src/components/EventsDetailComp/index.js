@@ -6,6 +6,7 @@ import './styles.scss';
 import { Carousel } from 'react-carousel-minimal';
 import { useDispatch, useSelector } from 'react-redux';
 import emailjs from 'emailjs-com';
+import PropTypes from 'prop-types';
 
 // import banner from './images/banner.jpg';
 import banner4 from './images/banner4.jpeg';
@@ -136,10 +137,6 @@ const EventsDetailComp = ({ userDetail }) => {
             slideImageFit="cover"
             style={{
               textAlign: 'center',
-              // maxWidth: '850px',
-              // maxHeight: '500px',
-              // margin: '0 auto',
-              // padding: '0 0rem',
               display: 'flex',
               justifyContent: 'center',
             }}
@@ -148,6 +145,10 @@ const EventsDetailComp = ({ userDetail }) => {
       </div>
     </div>
   );
+};
+
+EventsDetailComp.propTypes = {
+  userDetail: PropTypes.array.isRequired,
 };
 
 export default EventsDetailComp;

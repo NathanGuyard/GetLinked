@@ -6,6 +6,7 @@ import './styles.scss';
 import { Carousel } from 'react-carousel-minimal';
 import { useDispatch, useSelector } from 'react-redux';
 import emailjs from 'emailjs-com';
+import PropTypes from 'prop-types';
 
 import banner4 from './images/banner4.jpeg';
 import etoile from './images/etoile.png';
@@ -148,6 +149,10 @@ const ArtisteDetailComp = ({ userDetail }) => {
       </div>
     </div>
   );
+};
+
+ArtisteDetailComp.propTypes = {
+  userDetail: PropTypes.array.isRequired,
 };
 
 export default ArtisteDetailComp;

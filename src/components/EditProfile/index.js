@@ -52,10 +52,6 @@ const EditProfile = () => {
           <label htmlFor="email">Email :</label>
           <input type="text" name="email" id="email" value={email} className="register__form__element__input" />
         </div>
-        {/* <div className="register__form__element">
-          <label htmlFor="password">Mot de passe :</label>
-          <input type="password" name="password" id="password" className="register__form__element__input" />
-        </div> */}
         <div className="register__form__element">
           <label htmlFor="description">Description :</label>
           <textarea name="description" id="description" cols="30" rows="10" value={description} className="register__form__element__description register__form__element__input" />

@@ -1,6 +1,6 @@
 const initialState = {
   menuOpened: false,
-  logged: true,
+  logged: false,
   users: [],
   events: [],
   styles: [],
@@ -54,8 +54,21 @@ const initialState = {
     location: '',
   },
   connectedUser: {
+    type: '',
+    name: '',
+    firstname: '',
+    lastname: '',
     email: '',
     password: '',
+    description: '',
+    nb_members: null,
+    address: '',
+    website: '',
+    facebook: '',
+    instagram: '',
+    twitter: '',
+    picture: '',
+    slug: '',
   },
 };
 
@@ -163,6 +176,9 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: true,
+        connectedUser: {
+          ...state.connectedUser,
+        },
       };
 
     case 'CHANGE_FILTER_EVENTS':

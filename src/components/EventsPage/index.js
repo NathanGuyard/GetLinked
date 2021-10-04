@@ -13,6 +13,7 @@ const EventsPage = () => {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.events);
   const styles = useSelector((state) => state.styles);
+  const userType = localStorage.getItem('type');
 
   const betterRatedEvents = [];
   for (let index = 0; index < 3; index++) {
@@ -100,11 +101,13 @@ const EventsPage = () => {
           ))}
         </div>
       </div>
-      <div className="events-page__button-container">
-        <Link to="/evenement/nouveau">
-          <button type="button" className="events-page__button-container__submit">Créer un événement</button>
-        </Link>
-      </div>
+      {userType === 'organisateur' && (
+        <div className="events-page__button-container">
+          <Link to="/evenement/nouveau">
+            <button type="button" className="events-page__button-container__submit">Créer un événement</button>
+          </Link>
+        </div>
+      )}
       <form method="get" className="events-page__from">
         <h1 className="events-page__from__title">Affiner votre recherche</h1>
         <input type="text" name="eventsPageSearch" id="eventsPageSearch" placeholder="Rechercher" className="events-page__from__input--search" onChange={handleSearchBar} />

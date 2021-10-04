@@ -1,8 +1,12 @@
 import axios from 'axios';
 
+const api = axios.create({
+  baseURL: 'http://ec2-107-23-250-100.compute-1.amazonaws.com',
+});
+
 const APIMiddleware = (store) => (next) => (action) => {
   if (action.type === 'FETCH_ARTISTS') {
-    axios.get('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/users/')
+    api.get('/api/v1/users/')
       .then((response) => {
         const users = response.data;
         store.dispatch({
@@ -78,30 +82,54 @@ const APIMiddleware = (store) => (next) => (action) => {
     })
       .then(() => {
         window.scroll(0, 0);
-        window.location.reload();
+        window.location = '/connexion';
       });
   }
   else if (action.type === 'LOGIN') {
     const state = store.getState();
+    const token = null;
     axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/login_check', {
       username: state.connectedUser.email,
       password: state.connectedUser.password,
     }, {
       headers: {
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
       },
     })
       .then((response) => {
-        console.log(response);
-        // 'http://ec2-107-23-250-100.compute-1.amazonaws.com/'.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
-        // store.dispatch({
-        //   type: 'SAVE_USER',
-        // });
+        // console.log(response);
+        api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
+        store.dispatch({
+          type: 'SAVE_USER',
+        });
+        // console.log(response);
+        localStorage.setItem('token', response.data.token);
+        // localStorage.setItem('style', response.data.style.name);
+        localStorage.setItem('type', response.data.data.type);
+        localStorage.setItem('name', response.data.data.name);
+        localStorage.setItem('firstname', response.data.data.firstname);
+        localStorage.setItem('lastname', response.data.data.lastname);
+        localStorage.setItem('email', response.data.data.email);
+        localStorage.setItem('description', response.data.data.description);
+        localStorage.setItem('nbMembers', response.data.data.nbMembers);
+        localStorage.setItem('address', response.data.data.address);
+        localStorage.setItem('website', response.data.data.website);
+        localStorage.setItem('facebook', response.data.data.facebook);
+        localStorage.setItem('instagram', response.data.data.instagram);
+        localStorage.setItem('twitter', response.data.data.twitter);
+        localStorage.setItem('picture', response.data.data.picture);
+        localStorage.setItem('slug', response.data.data.slug);
+
+        window.scroll(0, 0);
+        window.location = '/';
       })
       .catch((error) => {
         console.error(error);
         alert('Authentification échouée');
       });
+  }
+  else if (action.type === 'LOGOUT') {
+    localStorage.clear();
   }
   else if (action.type === 'INCREASE_ARTIST_PAGE_NUMBER') {
     store.dispatch({

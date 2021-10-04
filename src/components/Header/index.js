@@ -77,7 +77,6 @@ const Header = () => {
             Profil
           </NavLink>
           {logged && (
-            // TODO onClick={handleLogout}
             <NavLink exact to="/deconnexion" onClick={handleLogout}>
               Déconnexion
             </NavLink>

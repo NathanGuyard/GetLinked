@@ -46,6 +46,13 @@ const App = () => {
     dispatch({
       type: 'FETCH_HOME',
     });
+
+    if (localStorage.getItem('token') !== null) {
+      // console.log('connexté');
+      dispatch({
+        type: 'SAVE_USER',
+      });
+    }
   }, []);
 
   const { pathname } = useLocation();

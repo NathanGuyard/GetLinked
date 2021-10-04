@@ -8,6 +8,7 @@ const Register = () => {
   const dispatch = useDispatch();
   const userType = useSelector((state) => state.createProfil.type);
   const pictureTest = useSelector((state) => state.createProfil.picture);
+  const styles = useSelector((state) => state.styles);
 
   const changeField = (value, key) => {
     dispatch({
@@ -48,6 +49,9 @@ const Register = () => {
   };
   const handleNbmembersChange = (evt) => {
     changeField(evt.target.value, 'nb_members');
+  };
+  const handleUserStyleChange = (evt) => {
+    changeField(evt.target.value, 'user_style');
   };
   const handleAddressChange = (evt) => {
     changeField(evt.target.value, 'address');
@@ -133,6 +137,17 @@ const Register = () => {
           <div className="register__form__element">
             <label htmlFor="nb_members">Nombre de personne dans le groupe :</label>
             <input type="number" name="nb_members" id="nb_members" min="1" max="50" range="1" className="register__form__element__input" onChange={handleNbmembersChange} />
+          </div>
+        )}
+        {userType === 'artiste' && (
+          <div className="register__form__element">
+            <label htmlFor="type">Style de musique :</label>
+            <select name="type" id="type" className="register__form__element__input" onChange={handleUserStyleChange}>
+              <option value="">-- Choisir un style --</option>
+              {styles.map((style) => (
+                <option value={style.name} key={style.name}>{style.name}</option>
+              ))}
+            </select>
           </div>
         )}
 

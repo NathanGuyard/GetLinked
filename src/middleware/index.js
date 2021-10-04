@@ -78,6 +78,7 @@ const APIMiddleware = (store) => (next) => (action) => {
       instagram: state.createProfil.instagram,
       twitter: state.createProfil.twitter,
       picture: state.createProfil.picture,
+      user_style: state.createProfil.user_style,
       slug: state.createProfil.slug,
     })
       .then(() => {

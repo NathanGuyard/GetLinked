@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://ec2-107-23-250-100.compute-1.amazonaws.com',
+  baseURL: 'http://ec2-3-95-157-245.compute-1.amazonaws.com/',
 });
 
 const APIMiddleware = (store) => (next) => (action) => {
@@ -16,25 +16,28 @@ const APIMiddleware = (store) => (next) => (action) => {
       });
   }
   else if (action.type === 'FETCH_HOME') {
-    const artistsList = axios.get('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/users/');
-    const eventsList = axios.get('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/events/');
-    const stylesList = axios.get('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/styles/');
-    Promise.all([artistsList, eventsList, stylesList])
+    const artistsList = axios.get('http://ec2-3-95-157-245.compute-1.amazonaws.com/api/v1/users/');
+    const eventsList = axios.get('http://ec2-3-95-157-245.compute-1.amazonaws.com/api/v1/events/');
+    const stylesList = axios.get('http://ec2-3-95-157-245.compute-1.amazonaws.com/api/v1/styles/');
+    const categoriesList = axios.get('http://ec2-3-95-157-245.compute-1.amazonaws.com/api/v1/categories/');
+    Promise.all([artistsList, eventsList, stylesList, categoriesList])
       .then((responses) => {
         const artistList = responses[0].data;
         const eventList = responses[1].data;
         const styleList = responses[2].data;
+        const categoryList = responses[3].data;
 
         store.dispatch({
           type: 'LOAD_HOME_DATA',
           events: eventList,
           users: artistList,
           styles: styleList,
+          categories: categoryList,
         });
       });
   }
   else if (action.type === 'FETCH_EVENTS') {
-    axios.get('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/events/')
+    axios.get('http://ec2-3-95-157-245.compute-1.amazonaws.com/api/v1/events/')
       .then((response) => {
         store.dispatch({
           type: 'LOAD_EVENTS',
@@ -44,7 +47,7 @@ const APIMiddleware = (store) => (next) => (action) => {
   }
   else if (action.type === 'NEW_EVENTS') {
     const state = store.getState();
-    axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/events/', {
+    axios.post('http://ec2-3-95-157-245.compute-1.amazonaws.com/api/v1/events/', {
       address: state.createEvent.address,
       date: state.createEvent.date,
       description: state.createEvent.description,
@@ -63,7 +66,7 @@ const APIMiddleware = (store) => (next) => (action) => {
   }
   else if (action.type === 'NEW_USER') {
     const state = store.getState();
-    axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/v1/users/', {
+    axios.post('http://ec2-3-95-157-245.compute-1.amazonaws.com/api/v1/users/', {
       type: state.createProfil.type,
       name: state.createProfil.name,
       firstname: state.createProfil.firstname,
@@ -79,6 +82,7 @@ const APIMiddleware = (store) => (next) => (action) => {
       twitter: state.createProfil.twitter,
       picture: state.createProfil.picture,
       user_style: state.createProfil.user_style,
+      user_category: state.createProfil.user_category,
       slug: state.createProfil.slug,
     })
       .then(() => {
@@ -89,7 +93,7 @@ const APIMiddleware = (store) => (next) => (action) => {
   else if (action.type === 'LOGIN') {
     const state = store.getState();
     const token = null;
-    axios.post('http://ec2-107-23-250-100.compute-1.amazonaws.com/api/login_check', {
+    axios.post('http://ec2-3-95-157-245.compute-1.amazonaws.com/api/login_check', {
       username: state.connectedUser.email,
       password: state.connectedUser.password,
     }, {
@@ -124,8 +128,8 @@ const APIMiddleware = (store) => (next) => (action) => {
         window.scroll(0, 0);
         window.location = '/';
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
+        // console.error(error);
         alert('Authentification échouée');
       });
   }

@@ -17,6 +17,8 @@ const EditProfile = () => {
   const twitter = localStorage.getItem('twitter');
   const picture = localStorage.getItem('picture');
 
+  //TODO : OnChange -> stocker en BDD
+
   return (
     <div className="register">
       <h1 className="register__title">Modifier le compte :</h1>

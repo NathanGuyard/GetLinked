@@ -9,6 +9,7 @@ const Register = () => {
   const userType = useSelector((state) => state.createProfil.type);
   const pictureTest = useSelector((state) => state.createProfil.picture);
   const styles = useSelector((state) => state.styles);
+  const categoriesList = useSelector((state) => state.categories);
 
   const changeField = (value, key) => {
     dispatch({
@@ -52,6 +53,9 @@ const Register = () => {
   };
   const handleUserStyleChange = (evt) => {
     changeField(evt.target.value, 'user_style');
+  };
+  const handleUserCategoryChange = (evt) => {
+    changeField(evt.target.value, 'user_category');
   };
   const handleAddressChange = (evt) => {
     changeField(evt.target.value, 'address');
@@ -145,7 +149,19 @@ const Register = () => {
             <select name="type" id="type" className="register__form__element__input" onChange={handleUserStyleChange}>
               <option value="">-- Choisir un style --</option>
               {styles.map((style) => (
-                <option value={style.name} key={style.name}>{style.name}</option>
+                <option value={style.id} key={style.name}>{style.name}</option>
+              ))}
+            </select>
+          </div>
+        )}
+
+        {userType === 'organisateur' && (
+          <div className="register__form__element">
+            <label htmlFor="type">Type d'établissement :</label>
+            <select name="type" id="type" className="register__form__element__input" onChange={handleUserCategoryChange}>
+              <option value="">-- Choisir un type --</option>
+              {categoriesList.map((category) => (
+                <option value={category.id} key={category.name}>{category.name}</option>
               ))}
             </select>
           </div>

@@ -4,6 +4,7 @@ const initialState = {
   users: [],
   events: [],
   styles: [],
+  categories: [],
   loading: true,
   artistPage: 1,
   eventsPage: 1,
@@ -103,6 +104,7 @@ const reducer = (state = initialState, action = {}) => {
         events: action.events,
         users: action.users,
         styles: action.styles,
+        categories: action.categories,
         loading: false,
       };
     case 'INCREASE_ARTIST_PAGE':

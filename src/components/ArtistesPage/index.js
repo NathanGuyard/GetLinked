@@ -6,11 +6,13 @@ import LittleCard from 'src/components/LittleCard';
 
 import './styles.scss';
 
-// == Composant
+// == Component of the home page where there are all the artists
 const ArtistesPage = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
   const styles = useSelector((state) => state.styles);
+
+  // I'm using a ForEach to sort the artists from the organizers I get from the API and push the artists to a new table 
 
   const artists = [];
   users.forEach((user) => {
@@ -18,6 +20,9 @@ const ArtistesPage = () => {
       artists.push(user);
     }
   });
+
+  // I use a for to retrieve 3 artisite for the artists of the moment (not yet dynamic)
+
   const betterRatedArtists = [];
   for (let index = 0; index < 3; index++) {
     betterRatedArtists.push(artists[index]);
@@ -61,6 +66,8 @@ const ArtistesPage = () => {
     }
   });
 
+  // with pagination
+
   function paginator(items, currentPage, perPageItems) {
     const page = currentPage || 1;
     const perPage = perPageItems || 10;
@@ -77,6 +84,9 @@ const ArtistesPage = () => {
       data: paginatedItems,
     };
   }
+
+  // Use a dispatch in the reducers to dynamically change the number of pages there are depending on the number of artists retrieved via the API
+
   const artistPage = useSelector((state) => state.artistPage);
   const handleNextPage = (event) => {
     event.preventDefault();
@@ -93,6 +103,9 @@ const ArtistesPage = () => {
   const pagination = paginator(artistsAfterLocation, artistPage, 6);
   const numberOfPages = pagination.totalPages;
   const artistsToDisplay = pagination.data;
+
+
+  // HTML of Artist's Home Page
 
   return (
     <div className="artistes-page">
@@ -119,6 +132,7 @@ const ArtistesPage = () => {
       </form>
       <div className="artistes-page__list">
         <div className="artistes-page__list__container">
+          {/* Dynamically display the artists thanks to a map  */}
           {artistsToDisplay.map((artist) => (
             <LittleCard key={artist.id} {...artist} />
           ))}

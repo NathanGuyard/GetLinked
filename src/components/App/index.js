@@ -34,6 +34,9 @@ import './styles.scss';
 
 // == Composant
 const App = () => {
+
+  // All the dispatch useful to load the Home page
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -49,6 +52,8 @@ const App = () => {
     }
   }, []);
 
+  // We use useLocation and useEffect to fix a bug and make the page always come back to the top of the page
+
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -58,16 +63,21 @@ const App = () => {
     });
   }, [pathname]);
 
+  // I use a state to know if the user is connected or not to give him certain access
+
   const loading = useSelector((state) => state.loading);
   const logged = useSelector((state) => state.logged);
+
+  // Do not load the rest of the pages until the loading has finished loading the API
 
   if (loading) {
     return <Loading />;
   }
 
+  // All routes with routes and redirects in case of no connection, we use react-route-dom for routes
+
   return (
     <div className="app">
-      {/* ----------- Header -------------- */}
       <Switch>
         <Route exact path="/">
           <Header />

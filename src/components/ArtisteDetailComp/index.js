@@ -16,6 +16,9 @@ import second from './images/second.jpg';
 import third from './images/third.jpg';
 import fourth from './images/fourth.jpg';
 
+// Here we have the details of an artist page
+// userDetail is a prop that we send from the API to retrieve the data for display on the page dynamically
+
 const ArtisteDetailComp = ({ userDetail }) => {
   const dispatch = useDispatch();
   const successPopup = useSelector((state) => state.successPopup);
@@ -42,6 +45,8 @@ const ArtisteDetailComp = ({ userDetail }) => {
     fontSize: '2em',
     fontWeight: 'bold',
   };
+
+  // Use of an extension named: emailjs-com, to be able to send email directly to the site
 
   const sendEmail = (event) => {
     event.preventDefault();
@@ -72,6 +77,8 @@ const ArtisteDetailComp = ({ userDetail }) => {
   };
 
   console.log(userDetail);
+
+  // The HTML code with dynamic props for each detail page of an artist
 
   return (
     <div className="detail-container">

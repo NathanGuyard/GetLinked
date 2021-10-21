@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://ec2-3-95-157-245.compute-1.amazonaws.com/',
+  baseURL: 'http://ec2-3-95-157-245.compute-1.amazonaws.com',
 });
 
 const APIMiddleware = (store) => (next) => (action) => {

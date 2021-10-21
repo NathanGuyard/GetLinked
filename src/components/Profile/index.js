@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 // import nathan from './images/nathan.jpg';
 
 const Profile = () => {
+
+  // I retrieve from the localStorage the information of a connected user
+
   const type = localStorage.getItem('type');
   const name = localStorage.getItem('name');
   const firstname = localStorage.getItem('firstname');

@@ -43,6 +43,8 @@ const EventsDetailComp = ({ userDetail }) => {
     fontWeight: 'bold',
   };
 
+  //  Use of an extension named: emailjs-com, to be able to send email directly to the site 
+
   const sendEmail = (event) => {
     event.preventDefault();
 

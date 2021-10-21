@@ -9,6 +9,8 @@ import second from './images/second.jpg';
 import third from './images/third.jpg';
 import fourth from './images/fourth.jpg';
 
+// A simple carousel to recover with the extension: react-carousel-minimal
+
 const CarouselComponent = () => {
   const data = [
     {

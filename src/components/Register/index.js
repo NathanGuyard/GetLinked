@@ -26,6 +26,8 @@ const Register = () => {
     });
   };
 
+  // Control fields 
+
   const handleTypeChange = (evt) => {
     changeField(evt.target.value, 'type');
   };

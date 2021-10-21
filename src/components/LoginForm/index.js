@@ -17,6 +17,7 @@ const LoginForm = () => {
     });
   };
 
+  // We use several dispatch to send the info to the API and if the return response is true then we use the other dispatch which modifies the state of the logging to true
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch({
@@ -24,6 +25,9 @@ const LoginForm = () => {
     });
   };
 
+
+  // Control fields 
+  
   const handleEmailChange = (evt) => {
     changeField(evt.target.value, 'email');
   };

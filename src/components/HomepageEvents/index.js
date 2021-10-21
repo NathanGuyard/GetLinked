@@ -8,6 +8,9 @@ import './styles.scss';
 
 // == Composant
 const HomepageEvents = () => {
+
+  // We get the best events and put them in a new table for the posters (not yet dynamic)
+
   const events = useSelector((state) => state.events);
   const bestEvents = [];
   for (let index = 0; index < 4; index++) {

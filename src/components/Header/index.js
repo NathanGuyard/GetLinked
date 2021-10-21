@@ -8,6 +8,9 @@ import menuClosed from './images/menu_closed.png';
 import menuOpenedIcon from './images/menu_opened.png';
 
 const Header = () => {
+
+  // We use dispatch for burger menu and modif the state if it's open or not 
+
   const dispatch = useDispatch();
   const handleMenu = () => {
     dispatch({

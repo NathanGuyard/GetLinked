@@ -58,6 +58,8 @@ const EventsPage = () => {
     }
   });
 
+  // with pagination
+
   function paginator(items, currentPage, perPageItems) {
     const page = currentPage || 1;
     const perPage = perPageItems || 10;
@@ -74,6 +76,9 @@ const EventsPage = () => {
       data: paginatedItems,
     };
   }
+
+  // Use a dispatch in the reducers to dynamically change the number of pages there are depending on the number of artists retrieved via the API
+
   const eventsPage = useSelector((state) => state.eventsPage);
   const handleNextPage = (event) => {
     event.preventDefault();

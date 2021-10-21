@@ -3,6 +3,9 @@
 import './styles.scss';
 
 const EditProfile = () => {
+
+  // I retrieve from the localStorage the information of a connected user
+
   const type = localStorage.getItem('type');
   const name = localStorage.getItem('name');
   const firstname = localStorage.getItem('firstname');

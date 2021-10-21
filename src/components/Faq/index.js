@@ -2,6 +2,9 @@ import './styles.scss';
 import guillaume from './images/guillaume.jpg';
 
 const Faq = () => (
+
+  // FAQ comment
+
   <div className="faq">
     <h1 className="faq__title">Foire aux questions</h1>
     <div className="faq__who">

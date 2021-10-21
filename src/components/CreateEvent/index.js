@@ -23,6 +23,8 @@ const CreateEvent = () => {
     });
   };
 
+  // I make control fields to retrieve what users create
+
   const handleNameChange = (evt) => {
     changeField(evt.target.value, 'name');
     changeField((evt.target.value).replace(/\s+/g, '-').toLowerCase(), 'slug');
@@ -49,12 +51,16 @@ const CreateEvent = () => {
   //   changeField(evt.target.value, 'picture');
   // };
 
+  // I upload the image to base64 to convert it later
+
   const uploadImage = async (e) => {
     const file = e.target.files[0];
     const base64 = await convertBase64(file);
     changeField(base64, 'picture');
   };
 
+  // I convert the photo that I recover to base64 to store it in the database
+  
   const convertBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
@@ -70,7 +76,7 @@ const CreateEvent = () => {
     });
   };
 
-  // console.log(pictureTest);
+  
 
   return (
     <div className="eventCreation">

@@ -9,6 +9,8 @@ import second from './images/second.jpg';
 import third from './images/third.jpg';
 import fourth from './images/fourth.jpg';
 
+// A simple carousel to recover with the extension: react-carousel-minimal
+
 const CarouselComponent = () => {
   const data = [
     {
@@ -45,6 +47,7 @@ const CarouselComponent = () => {
       height="500px"
       captionStyle={captionStyle}
       radius="0"
+      z-index="1"
       captionPosition="center"
       automatic={true}
       dots={true}
@@ -52,8 +55,6 @@ const CarouselComponent = () => {
       slideImageFit="cover"
       style={{
         textAlign: 'center',
-        // maxWidth: '850px',
-        // maxHeight: '500px',
         margin: '0 auto',
         padding: '0 0rem',
         display: 'flex',
